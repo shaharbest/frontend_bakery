@@ -15,12 +15,12 @@ import ProductResource from './Resources/Products/ProductResource'
 import CouponResource from './Resources/Coupons/CouponResource'
 import OrderResource from './Resources/Orders/OrderResource'
 
+import { getApiUrl } from '../../../config/api'
+
 import { createTheme } from '@mui/material/styles'
 
 import Dashboard from './Basic/Dashboard'
 import MyLayout from './Basic/MyLayout'
-
-const apiUrl = 'http://localhost:5000'
 
 const history = createHashHistory()
 
@@ -39,7 +39,7 @@ function UsersManagementPage() {
         theme={darkTheme}
         authProvider={authProvider}
         dashboard={Dashboard}
-        dataProvider={simpleRestProvider(apiUrl)}
+        dataProvider={simpleRestProvider(getApiUrl())}
       >
         <UserResource name="users" />
         <ProductResource name="products" />
