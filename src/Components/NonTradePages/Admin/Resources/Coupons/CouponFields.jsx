@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  TextInput,
-  BooleanInput,
-  DateInput,
-  ReferenceInput,
-  SelectInput,
-} from 'react-admin'
+import { TextInput, BooleanInput, DateInput } from 'react-admin'
 
 function CouponFields() {
   return (

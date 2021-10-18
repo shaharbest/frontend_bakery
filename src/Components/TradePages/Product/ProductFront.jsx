@@ -6,7 +6,7 @@ import Carousel from '../../Utils/Carousel/Carousel'
 function ProductFront() {
   const product = useProduct()
 
-  const productPics = product.otherImages
+  const productPics = product.otherImages.map((curPic) => curPic.path)
   const [mainPic, setMainPic] = useState(() => product.mainImagePath)
 
   useEffect(() => {

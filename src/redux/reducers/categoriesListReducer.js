@@ -13,4 +13,4 @@ const categoriesListReducer = (state = { categories: [] }, action) => {
   }
 }
 
-export default productListReducer
+export default categoriesListReducer

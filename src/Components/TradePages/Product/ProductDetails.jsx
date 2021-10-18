@@ -6,8 +6,6 @@ import { getCurrencySymbol } from '../../../DataBaseAccess'
 import YesNo from '../../Utils/YesNo'
 import { useProduct } from '../../../contexts/ProductContext'
 import { useAuth } from '../../../contexts/AuthContext'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 
 const arr = [
   'delivery charge',
@@ -21,19 +19,11 @@ const arr = [
 function ProductDetails() {
   const { isAuthenticated } = useAuth()
   const product = useProduct()
-  const [categoryName, setCategoryName] = useState('?')
-
-  useEffect(() => {
-    product.categoryId &&
-      axios.get(`/categories/${product.categoryId}`).then((result) => {
-        setCategoryName(result.data.name)
-      })
-  }, [product])
 
   return (
     <div className="flex flex-col items-center gap-2 text-center">
       <div>
-        <div>{`category: ${categoryName}`}</div>
+        <CategoriesDiv product={product} />
         <StarsRatingIcon grade={product.stars} />
         <div>{`price: ${product.price}${getCurrencySymbol()}`}</div>
       </div>
@@ -52,6 +42,15 @@ function ProductDetails() {
       )}
     </div>
   )
+}
+
+function CategoriesDiv({ product }) {
+  const content =
+    product && product.categories
+      ? product.categories.map((curCategory) => curCategory.name).join(' ')
+      : ''
+
+  return <div>{content}</div>
 }
 
 export default ProductDetails

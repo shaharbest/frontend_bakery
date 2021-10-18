@@ -1,17 +1,21 @@
 import React from 'react'
+
+import Catalog from './Catalog'
+import CatalogControls from './CatalogControls'
+import CatalogSortControl from './CatalogSortControl'
+
+import { withRouter } from 'react-router-dom'
 import { getDataFilteredAndSorted } from './storeUtils'
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { listProducts } from '../../../redux/actions/productsActions'
+
 import {
   getGroups,
   getSelectAllOption,
   getAllCategories,
   getSortCategoryOptions,
 } from '../../../DataBaseAccess'
-import { withRouter } from 'react-router-dom'
-import Catalog from './Catalog'
-import CatalogControls from './CatalogControls'
-import CatalogSortControl from './CatalogSortControl'
-import axios from 'axios'
 
 const allOption = getSelectAllOption(),
   categoriesOptions = [allOption, ...getAllCategories()],
@@ -19,7 +23,8 @@ const allOption = getSelectAllOption(),
   sortCategoryOptions = getSortCategoryOptions()
 
 function Store({ location }) {
-  const [allProducts, setAllProducts] = useState([])
+  const dispatch = useDispatch()
+
   const [filteredAndSortedProducts, setFilteredAndSortedProducts] = useState([])
   const [search, setSearch] = useState('')
   const [isInStock, setIsInStock] = useState(isInStockOptions[0])
@@ -32,19 +37,16 @@ function Store({ location }) {
     return groups
   })
 
+  const { loading, error, products } = useSelector((state) => state.productList)
+
   useEffect(() => {
-    const fetchAllProducts = async () => {
-      const { data } = await axios.get('/products')
-      console.log(data)
-      setAllProducts(data)
-    }
-    fetchAllProducts()
-  }, [])
+    dispatch(listProducts())
+  }, [dispatch])
 
   useEffect(() => {
     setFilteredAndSortedProducts(
       getDataFilteredAndSorted(
-        allProducts,
+        products,
         isInStock,
         category,
         search,
@@ -54,7 +56,7 @@ function Store({ location }) {
       )
     )
   }, [
-    allProducts,
+    products,
     isInStock,
     category,
     search,
@@ -86,7 +88,11 @@ function Store({ location }) {
     setGroups(newGroup)
   }
 
-  return (
+  return loading ? (
+    <h2>loading...</h2>
+  ) : error ? (
+    <h3>{error}</h3>
+  ) : (
     <div className="flex flex-col md:flex-row  h-full ">
       <div className="md:h-full flex flex-col md:mx-1 px-1">
         <CatalogControls
