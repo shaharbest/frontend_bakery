@@ -16,10 +16,10 @@ const routesFromConfig = routes.map((curRoute) => (
 ))
 
 const routesList = [
-  <Route path="/" exact component={HomePage} />,
+  <Route key="/" path="/" exact component={HomePage} />,
   ...routesFromConfig,
-  <ProtectedRoute path="/dashboard" component={Dashboard} />,
-  <Route component={NotFoundPage} />,
+  <ProtectedRoute key="/dashboard" path="/dashboard" component={Dashboard} />,
+  <Route key="notfound" component={NotFoundPage} />,
 ]
 
 function App() {
