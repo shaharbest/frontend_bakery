@@ -4,7 +4,6 @@ import { Admin } from 'react-admin'
 import simpleRestProvider from 'ra-data-simple-rest'
 import { createHashHistory } from 'history'
 
-// import authProvider from './Utils/authProvider'
 import { authProvider, httpClient } from './Utils/authProvider'
 
 import UserResource from './Resources/Users/UserResource'
