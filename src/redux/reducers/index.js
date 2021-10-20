@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import cartReducer from './cartReducer'
 import productListReducer from './productListReducer'
+import productGroupListReducer from './productGroupListReducer'
 import categoriesListReducer from './productListReducer'
 import productDetailsReducer from './productDetailsReducer'
 import couponReducer from './couponReducer'
@@ -16,6 +17,7 @@ export default combineReducers({
   admin: adminReducer,
   router: connectRouter(history),
   productList: productListReducer,
+  productGroupList: productGroupListReducer,
   categoriesList: categoriesListReducer,
   productDetails: productDetailsReducer,
 })

@@ -1,19 +1,30 @@
 import React from 'react'
-import { getGroups } from '../../../DataBaseAccess'
 import GroupProducts from './GroupProducts'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { listProductGroups } from '../../../redux/actions/productGroupsActions'
 
-function AllGroupsProducts({ goToStoreFiltered }) {
+function AllGroupsProducts() {
+  const dispatch = useDispatch()
+  const { loading, error, productGroups } = useSelector(
+    (state) => state.productGroupList
+  )
+
+  useEffect(() => {
+    dispatch(listProductGroups())
+  }, [dispatch])
+
   return (
-    <div className="bg-d4">
-      {getGroups().map((curGroup, groupIndex) => {
-        return (
-          <GroupProducts
-            key={groupIndex}
-            group={curGroup}
-            goToStoreFiltered={() => goToStoreFiltered(groupIndex)}
-          />
-        )
-      })}
+    <div>
+      {loading ? (
+        <h2>loading...</h2>
+      ) : error ? (
+        <h3>{error}</h3>
+      ) : (
+        productGroups.map((curGroup) => (
+          <GroupProducts key={curGroup.id} group={curGroup} />
+        ))
+      )}
     </div>
   )
 }

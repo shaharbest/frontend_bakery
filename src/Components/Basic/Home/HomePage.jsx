@@ -25,11 +25,7 @@ function HomePage(props) {
         </div>
       </div>
 
-      <AllGroupsProducts
-        goToStoreFiltered={(groupIndex) => {
-          props.history.push(`/store?groupIndex=${groupIndex}`)
-        }}
-      />
+      <AllGroupsProducts />
     </div>
   )
 }
