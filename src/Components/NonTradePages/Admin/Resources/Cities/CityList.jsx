@@ -27,6 +27,7 @@ function BigList() {
   return (
     <>
       <Datagrid rowClick="edit">
+        <TextField source="_id" />
         <TextField source="id" />
         <TextField source="name" />
         <NumberField source="deliveryPrice" />

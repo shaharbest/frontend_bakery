@@ -18,9 +18,11 @@ function UserFields() {
       <BooleanInput source="isAdmin" />
       <TextInput source="streetName" />
       <NumberInput source="streetNumber" />
-      <ReferenceInput source="cityId" reference="cities">
-        <SelectInput optionText="name" />
+
+      <ReferenceInput label="city" source="cityId" reference="cities">
+        <SelectInput optionText="name" optionValue="_id" />
       </ReferenceInput>
+
       <TextInput source="avatarImagePath" />
       <DateInput source="dateSignedUp" />
     </>
