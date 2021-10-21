@@ -11,6 +11,7 @@ store.subscribe(() => {
   saveState({
     cart: store.getState().cart,
     coupon: store.getState().coupon,
+    userLogin: store.getState().userLogin,
   })
 })
 

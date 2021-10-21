@@ -8,6 +8,7 @@ import AboutPage from './NonTradePages/About/AboutPage'
 import ContactPage from './NonTradePages/Contact/ContactPage'
 import SimpleEmailLogin from './NonTradePages/LogSign/SimpleEmailLogin'
 import LoginOptionsPage from './NonTradePages/LogSign/LoginOptionsPage'
+import LoginScreen from './NonTradePages/LogSign/LoginScreen'
 import SignupPage from './NonTradePages/LogSign/SignupPage'
 import BlogPage from './NonTradePages/Blog/BlogPage'
 import AdminPage from './NonTradePages/Admin/AdminPage'
@@ -34,4 +35,5 @@ export {
   Store,
   Store2,
   Profile,
+  LoginScreen,
 }

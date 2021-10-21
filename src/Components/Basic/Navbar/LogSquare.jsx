@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useAuth } from '../../../contexts/AuthContext'
+import { useSelector } from 'react-redux'
 
 function LogSquare() {
-  const { isAuthenticated, currentUser } = useAuth()
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   return (
     <Link to="/login">
       <div className="text-center flex flex-col items-center">
         <FontAwesomeIcon icon={['fas', 'user']} />
-        {isAuthenticated() ? getEmailPrefix(currentUser.email) : 'login'}
+        {userInfo ? getEmailPrefix(userInfo.email) : 'login'}
       </div>
     </Link>
   )

@@ -27,7 +27,7 @@ const routes = [
   },
   {
     path: '/login',
-    component: Pages.LoginOptionsPage,
+    component: Pages.LoginScreen,
   },
   {
     path: '/signup',
