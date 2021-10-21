@@ -2,41 +2,41 @@ import React from 'react'
 
 import AllGroupsProducts from './AllGroupsProducts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { withRouter } from 'react-router-dom'
 
-function HomePage(props) {
+function HomePage() {
   return (
     <div>
-      <div className="flex justify-center space-x-9 mb-5 items-center">
-        <h1 className="">Home Page</h1>
-        <FontAwesomeIcon icon={['fas', 'home']} size="4x" />
-      </div>
-
-      <div className="relative">
-        <div className="flex justify-center">
-          <img src="images/bakery_wallpaper.jpg" alt="wallpaper" />
-        </div>
-
-        <div
-          style={{ transform: 'translate(-50%, 0)' }}
-          className="absolute bottom-5 left-1/2"
-        >
-          <ShopButton history={props.history} />
-        </div>
-      </div>
-
+      <BakeryBanner />
       <AllGroupsProducts />
     </div>
   )
 }
 
-function ShopButton({ history }) {
+function BakeryBanner() {
   return (
-    <button onClick={() => history.push('/store')} className="btn space-x-2">
+    <div className="relative py-10 h-1/5">
+      <div className="h-80 z-20 relative text-white flex flex-col items-center justify-between">
+        <h1 className="text-white text-9xl">Shahar's Bakery</h1>
+        <ShopButton />
+      </div>
+      <div className="absolute inset-0 h-auto z-10">
+        <img
+          src="images/bakery_wallpaper.jpg"
+          alt="banner"
+          className="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+  )
+}
+
+function ShopButton() {
+  return (
+    <button onClick={() => console.log('TODO')} className="btn space-x-2">
       <h1 className="inline">store</h1>
       <FontAwesomeIcon icon={['fas', 'store']} size="2x" />
     </button>
   )
 }
 
-export default withRouter(HomePage)
+export default HomePage
