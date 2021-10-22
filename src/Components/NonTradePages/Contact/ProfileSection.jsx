@@ -6,7 +6,7 @@ function ProfileSection() {
       <img
         alt="developer"
         className="max-w-xs mx-auto w-full"
-        src="https://shaharbest.com/shahar_profile_cropped.jpg"
+        src="/images/developer.jpg"
       />
     </div>
   )
