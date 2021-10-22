@@ -1,23 +1,32 @@
 import React from 'react'
+import './animation.css'
 
 import AllGroupsProducts from './AllGroupsProducts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function HomePage() {
   return (
-    <div>
+    <main>
       <BakeryBanner />
-      <AllGroupsProducts />
-    </div>
+      <div className="relative">
+        <AllGroupsProducts />
+      </div>
+    </main>
   )
 }
 
 function BakeryBanner() {
   return (
-    <div className="relative py-10 h-1/5">
-      <div className="h-80 z-20 relative text-white flex flex-col items-center justify-between">
-        <h1 className="text-white text-9xl">Shahar's Bakery</h1>
-        <ShopButton />
+    <div className="overflow-hidden relative py-10 h-96">
+      <div className="banner z-20 relative text-white">
+        <h1 className="top_banner text-white text-9xl">Shahar's Bakery</h1>
+        <button
+          className="bottom_banner mt-20 block mx-auto btn space-x-2"
+          onClick={() => console.log('TODO')}
+        >
+          <h1 className="inline">store</h1>
+          <FontAwesomeIcon icon={['fas', 'store']} size="2x" />
+        </button>
       </div>
       <div className="absolute inset-0 h-auto z-10">
         <img
@@ -27,15 +36,6 @@ function BakeryBanner() {
         />
       </div>
     </div>
-  )
-}
-
-function ShopButton() {
-  return (
-    <button onClick={() => console.log('TODO')} className="btn space-x-2">
-      <h1 className="inline">store</h1>
-      <FontAwesomeIcon icon={['fas', 'store']} size="2x" />
-    </button>
   )
 }
 

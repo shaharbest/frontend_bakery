@@ -4,7 +4,7 @@ import ProductCard from '../../TradePages/Store/ProductCard'
 
 function GroupProducts({ group }) {
   return (
-    <div className="mb-5 bg-d1">
+    <div className="bg-d1">
       <div className="grid grid-cols-2 justify-items-center py-2">
         <h1 className="text-left">{group.name}</h1>
         <button className="btn" onClick={() => console.log('TODO')}>

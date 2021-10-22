@@ -1,11 +1,11 @@
 import React from 'react'
 import Navbar from '../Basic/Navbar/Navbar'
 
-function Header({ cartItemCounts }) {
+function Header() {
   return (
-    <div className="border-b-2 mb-5">
+    <header className="border-b-2">
       <Navbar />
-    </div>
+    </header>
   )
 }
 

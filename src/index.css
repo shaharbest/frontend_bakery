@@ -1,3 +1,8 @@
+@font-face {
+  font-family: acme;
+  src: url(fonts/acme.ttf);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,9 +11,21 @@
   display: block;
 }
 
-body {
+* {
+  font-family: 'Acme', sans-serif;
+}
+
+section,
+header,
+footer,
+main {
   @apply bg-l4 text-d1;
   @apply dark:bg-d1 dark:text-l1;
+}
+
+header,
+footer {
+  @apply z-20;
 }
 
 .btn {
@@ -39,5 +56,16 @@ select {
   }
   h2 {
     @apply text-2xl;
+  }
+}
+
+@media print {
+  header {
+    display: none;
+  }
+
+  * {
+    background-color: white;
+    color: black !important;
   }
 }

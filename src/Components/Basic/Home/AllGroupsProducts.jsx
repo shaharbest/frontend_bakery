@@ -15,7 +15,7 @@ function AllGroupsProducts() {
   }, [dispatch])
 
   return (
-    <div>
+    <section>
       {loading ? (
         <h2>loading...</h2>
       ) : error ? (
@@ -25,7 +25,7 @@ function AllGroupsProducts() {
           <GroupProducts key={curGroup.id} group={curGroup} />
         ))
       )}
-    </div>
+    </section>
   )
 }
 

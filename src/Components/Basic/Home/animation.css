@@ -1,0 +1,25 @@
+.banner > * {
+  position: relative;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+.top_banner {
+  animation-name: enter_horizen;
+  transform: translate(0%, -100%);
+}
+.bottom_banner {
+  animation-name: enter_vertical;
+  transform: translate(0%, 100%);
+}
+
+@keyframes enter_horizen {
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes enter_vertical {
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
