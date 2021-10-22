@@ -1,0 +1,19 @@
+/* @font-face {
+  font-family: acme;
+  src: url(fonts/acme.ttf);
+} */
+
+* {
+  font-family: Garamond, serif;
+}
+
+@media print {
+  header {
+    display: none;
+  }
+
+  * {
+    background-color: white;
+    color: black !important;
+  }
+}

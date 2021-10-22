@@ -9,7 +9,9 @@
 }
 .bottom_banner {
   animation-name: enter_vertical;
+  animation-delay: 100ms;
   transform: translate(0%, 100%);
+  /* will-change: trasform; */
 }
 
 @keyframes enter_horizen {

@@ -6,6 +6,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ProtectedRoute from './Components/Utils/ProtectedRoute'
 import routes from './config/routes'
+import './app.css'
 
 const routesFromConfig = routes.map((curRoute) => (
   <Route
