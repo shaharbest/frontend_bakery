@@ -3,7 +3,7 @@ import { Resource } from 'react-admin'
 import CityList from './CityList'
 import CityEdit from './CityEdit'
 import CityCreate from './CityCreate'
-import CityIcon from '@material-ui/icons/Money'
+import CityIcon from '@material-ui/icons/LocationCity'
 
 function CityResource(props) {
   return (

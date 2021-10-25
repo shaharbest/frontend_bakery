@@ -3,7 +3,7 @@ import { Resource } from 'react-admin'
 import ProductList from './ProductList'
 import ProductEdit from './ProductEdit'
 import ProductCreate from './ProductCreate'
-import ProductIcon from '@material-ui/icons/Money'
+import ProductIcon from '@material-ui/icons/Fastfood'
 
 function ProductResource(props) {
   return (

@@ -3,7 +3,7 @@ import { Resource } from 'react-admin'
 import CouponTypeList from './CouponTypeList'
 import CouponTypeEdit from './CouponTypeEdit'
 import CouponTypeCreate from './CouponTypeCreate'
-import CouponTypeIcon from '@material-ui/icons/Money'
+import CouponTypeIcon from '@material-ui/icons/Class'
 
 function CouponTypeResource(props) {
   return (

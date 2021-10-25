@@ -3,7 +3,7 @@ import { Resource } from 'react-admin'
 import CategoryList from './CategoryList'
 import CategoryEdit from './CategoryEdit'
 import CategoryCreate from './CategoryCreate'
-import CategoryIcon from '@material-ui/icons/Money'
+import CategoryIcon from '@material-ui/icons/Category'
 
 function CategoryResource(props) {
   return (

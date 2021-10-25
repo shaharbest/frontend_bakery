@@ -3,7 +3,7 @@ import { Resource } from 'react-admin'
 import OrderList from './OrderList'
 import OrderEdit from './OrderEdit'
 import OrderCreate from './OrderCreate'
-import OrderIcon from '@material-ui/icons/Money'
+import OrderIcon from '@material-ui/icons/EventNote'
 
 function OrderResource(props) {
   return (

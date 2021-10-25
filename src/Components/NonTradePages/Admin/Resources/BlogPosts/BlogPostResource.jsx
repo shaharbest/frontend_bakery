@@ -3,7 +3,7 @@ import { Resource } from 'react-admin'
 import BlogPostList from './BlogPostList'
 import BlogPostEdit from './BlogPostEdit'
 import BlogPostCreate from './BlogPostCreate'
-import BlogPostIcon from '@material-ui/icons/Pages'
+import BlogPostIcon from '@material-ui/icons/Chat'
 
 function BlogPostResource(props) {
   return (
