@@ -1,0 +1,18 @@
+@import '~react-image-gallery/styles/css/image-gallery.css';
+
+.image-gallery {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.image-gallery-slide {
+  height: 300px;
+}
+
+.fullscreen .image-gallery-slide {
+  height: 100%;
+}
+
+.fullscreen .image-gallery-slide img {
+  max-height: 100vh;
+}
