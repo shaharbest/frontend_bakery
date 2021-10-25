@@ -30,7 +30,7 @@ function Navbar() {
         </div>
       </div>
       <div>
-        <div className={`border-t-2 md:hidden ${active && 'hidden'}`}>
+        <div className={`border-t-2 md:hidden ${!active && 'hidden'}`}>
           <PagesMenu />
         </div>
       </div>

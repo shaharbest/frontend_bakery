@@ -1,6 +1,6 @@
 .banner > * {
   position: relative;
-  animation-duration: 4s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
 }
 .top_banner {
