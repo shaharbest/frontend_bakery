@@ -6,7 +6,7 @@ import ProductImg from './ProductImg'
 import { Link } from 'react-router-dom'
 
 function ProductCard({ product }) {
-  const { id, name, price, category, stars, isInStock } = product
+  const { id, name, price, category, rated, isInStock } = product
 
   return (
     <div className="w-full md:w-auto border-l1 text-center">
@@ -18,7 +18,7 @@ function ProductCard({ product }) {
       </div>
       <div>{`${price}${getCurrencySymbol()}`}</div>
       <div>
-        <StarsRatingIcon grade={stars} />
+        <StarsRatingIcon grade={rated} />
       </div>
       <div>{category}</div>
       <div>

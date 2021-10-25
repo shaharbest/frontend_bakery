@@ -24,7 +24,7 @@ function ProductDetails() {
     <div className="flex flex-col items-center gap-2 text-center">
       <div>
         <CategoriesDiv product={product} />
-        <StarsRatingIcon grade={product.stars} />
+        <StarsRatingIcon grade={product.rated} />
         <div>{`price: ${product.price}${getCurrencySymbol()}`}</div>
       </div>
       <div className="inline-grid gap-1 justify-items-stretch grid-cols-2">
