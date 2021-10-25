@@ -1,8 +1,8 @@
 import React from 'react'
-import GroupProducts from './GroupProducts'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { listProductGroups } from '../../../redux/actions/productGroupsActions'
+import GroupCarousel from './GroupCarousel'
 
 function AllGroupsProducts() {
   const dispatch = useDispatch()
@@ -15,14 +15,14 @@ function AllGroupsProducts() {
   }, [dispatch])
 
   return (
-    <section>
+    <section className="my-2">
       {loading ? (
         <h2>loading...</h2>
       ) : error ? (
         <h3>{error}</h3>
       ) : (
         productGroups.map((curGroup) => (
-          <GroupProducts key={curGroup.id} group={curGroup} />
+          <GroupCarousel key={curGroup.id} group={curGroup} />
         ))
       )}
     </section>
