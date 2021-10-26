@@ -17,7 +17,11 @@ function AllGroupsProducts() {
   return (
     <section className="my-2">
       {loading ? (
-        <h2>loading...</h2>
+        <>
+          <GroupCarousel />
+          <GroupCarousel />
+          <GroupCarousel />
+        </>
       ) : error ? (
         <h3>{error}</h3>
       ) : (

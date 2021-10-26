@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ProtectedRoute from './Components/Utils/ProtectedRoute'
 import routes from './config/routes'
 import './app.css'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { SkeletonTheme } from 'react-loading-skeleton'
 
 const routesFromConfig = routes.map((curRoute) => (
   <Route
@@ -29,9 +31,16 @@ function App() {
       <Router>
         <div className="text-l2 App mx-0 h-screen flex flex-col">
           <Header />
-          <main className="flex-1 overflow-y-auto z-30">
-            <Switch>{routesList}</Switch>
-          </main>
+          <SkeletonTheme
+            baseColor="#d8c4aa"
+            highlightColor="#2D1806"
+            // borderRadius="0.5rem"
+            // duration={4}
+          >
+            <main className="flex-1 overflow-y-auto z-30">
+              <Switch>{routesList}</Switch>
+            </main>
+          </SkeletonTheme>
           <Footer />
         </div>
       </Router>

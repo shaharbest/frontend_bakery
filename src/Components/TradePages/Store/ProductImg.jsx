@@ -1,16 +1,19 @@
 import React from 'react'
-import { getProductPics, getNoPicPath } from '../../../DataBaseAccess'
+import { getNoPicPath } from '../../../DataBaseAccess'
+import Skeleton from 'react-loading-skeleton'
 
-function ProductImg({ productId, isCol }) {
-  const picsObj = getProductPics(productId)
-  const path =
-    picsObj !== undefined &&
-    picsObj.pic_path !== null &&
-    picsObj.pic_path !== ''
-      ? picsObj.pic_path
-      : getNoPicPath()
+const classes = 'mx-auto h-20'
 
-  return <img className="mx-auto h-20" alt="product" src={path} />
+function ProductImg({ image, isSkeleton = false }) {
+  return isSkeleton ? (
+    <Skeleton className={`${classes} w-44`} />
+  ) : (
+    <img
+      className={classes}
+      alt="product"
+      src={image ? image : getNoPicPath()}
+    />
+  )
 }
 
 export default ProductImg
