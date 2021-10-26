@@ -1,27 +1,28 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
+import React from 'react'
+import { Route, Redirect } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function ProtectedRoute({ component: Component, ...rest }) {
-  const { currentUser } = useAuth();
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   return (
     <Route
       {...rest}
       render={(props) => {
-        return currentUser ? (
+        return userInfo ? (
           <Component {...props} />
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: '/login',
               state: {
                 from: props.location,
               },
             }}
           />
-        );
+        )
       }}
     />
-  );
+  )
 }

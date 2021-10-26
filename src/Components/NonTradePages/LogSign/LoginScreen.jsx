@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../../redux/actions/userActions'
 
@@ -25,17 +25,19 @@ function LoginScreen({ location, history }) {
   }
 
   return (
-    <div>
-      <h1>Sign In</h1>
+    <div className="flex flex-col gap-2">
+      <h1>Log In</h1>
       {error && <h2>{error}</h2>}
       {loading && <h2>loading</h2>}
-      <div className="flex flex-col gap-1 w-52 mx-auto">
+      <div className="flex flex-col gap-2 w-52 mx-auto">
         <input
+          className="text-center"
           type="text"
           placeholder="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="text-center"
           type="password"
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
@@ -44,6 +46,9 @@ function LoginScreen({ location, history }) {
           submit
         </button>
       </div>
+      <Link to="/register" className="text-center border block w-36 mx-auto">
+        register
+      </Link>
     </div>
   )
 }

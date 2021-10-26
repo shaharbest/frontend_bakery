@@ -5,6 +5,7 @@ import ShaharTextField from '../../Utils/ShaharTextField'
 import ShaharCheckboxField from './ShaharCheckboxField'
 import PayFormButtons from './PayFormButtons'
 import PayErrorsSummary from './PayErrorsSummary'
+import { useSelector } from 'react-redux'
 
 const validationSchema = yup.object({
   firstName: yup.string().required('first name is required'),
@@ -25,30 +26,25 @@ const validationSchema = yup.object({
   agree: yup.bool().oneOf([true], 'Field must be checked'),
 })
 
-const initialValues = {
-  firstName: '',
-  lastName: '',
-  phone: '',
-  email: '',
-  streetName: '',
-  streetNum: '',
-  apartmentNum: '',
-  city: '',
-  comment: '',
-  agree: false,
-  // firstName: "Shahar",
-  // lastName: "Best",
-  // streetName: "Ogen",
-  // streetNum: "4",
-  // apartmentNum: "11",
-  // city: "Tirat Carmel",
-  // comment: "fafa",
-  // phone: "036315765",
-  // email: "bestshahar9@gmail.com",
-  // agree: true,
-}
-
 function PayFormContent() {
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
+  console.log(userInfo)
+
+  const initialValues = {
+    firstName: userInfo.firstName,
+    lastName: userInfo.lastName,
+    phone: userInfo.phone,
+    email: userInfo.email,
+    streetName: userInfo.streetName,
+    streetNum: userInfo.streetNum,
+    apartmentNum: '',
+    city: userInfo.city,
+    comment: '',
+    agree: false,
+  }
+
   return (
     <Formik
       initialValues={initialValues}

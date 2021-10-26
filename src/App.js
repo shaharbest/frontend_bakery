@@ -10,13 +10,21 @@ import './app.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { SkeletonTheme } from 'react-loading-skeleton'
 
-const routesFromConfig = routes.map((curRoute) => (
-  <Route
-    key={curRoute.path}
-    path={curRoute.path}
-    component={curRoute.component}
-  />
-))
+const routesFromConfig = routes.map((curRoute) =>
+  curRoute.isProtected ? (
+    <ProtectedRoute
+      key={curRoute.path}
+      path={curRoute.path}
+      component={curRoute.component}
+    />
+  ) : (
+    <Route
+      key={curRoute.path}
+      path={curRoute.path}
+      component={curRoute.component}
+    />
+  )
+)
 
 const routesList = [
   <Route key="/" path="/" exact component={HomePage} />,

@@ -30,6 +30,10 @@ const routes = [
     component: Pages.LoginScreen,
   },
   {
+    path: '/register',
+    component: Pages.RegisterScreen,
+  },
+  {
     path: '/signup',
     component: Pages.SignupPage,
   },
@@ -44,14 +48,17 @@ const routes = [
   {
     path: '/pay',
     component: Pages.PayPage,
+    isProtected: true,
   },
   {
     path: '/admin',
     component: Pages.AdminPage,
+    isProtected: true,
   },
   {
     path: '/profile',
     component: Pages.Profile,
+    isProtected: true,
   },
 ]
 
