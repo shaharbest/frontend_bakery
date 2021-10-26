@@ -37,7 +37,7 @@ function App() {
             // borderRadius="0.5rem"
             // duration={4}
           >
-            <main className="flex-1 overflow-y-auto z-30">
+            <main className="flex-1 overflow-y-auto">
               <Switch>{routesList}</Switch>
             </main>
           </SkeletonTheme>

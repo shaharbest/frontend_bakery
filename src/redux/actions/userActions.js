@@ -8,21 +8,15 @@ const login = (email, password) => async (dispatch) => {
       type: actions.USER_LOGIN_REQUEST,
     })
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-
     const { data } = await axios.post(
       `${getApiUrl()}/users/login`,
       { email, password },
-      config
+      {
+        'Content-Type': 'application/json',
+      }
     )
 
     dispatch({ type: actions.USER_LOGIN_SUCCESS, payload: data })
-
-    // localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {
     dispatch({
       type: actions.USER_LOGIN_FAIL,
@@ -34,4 +28,8 @@ const login = (email, password) => async (dispatch) => {
   }
 }
 
-export { login }
+const logout = () => async (dispatch) => {
+  dispatch({ type: actions.USER_LOGOUT })
+}
+
+export { login, logout }
