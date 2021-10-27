@@ -1,12 +1,5 @@
 import * as actions from '../actionTypes/cart'
 
-export const assignContentToCart = (cartContent) => ({
-  type: actions.ASSIGN_CONTENT_TO_CART,
-  payload: {
-    cartContent,
-  },
-})
-
 export const resetCart = () => ({
   type: actions.RESET_CART,
 })

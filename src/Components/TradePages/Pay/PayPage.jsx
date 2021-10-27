@@ -1,11 +1,7 @@
 import React from 'react'
 import PayFormContent from './PayFormContent'
-import { useAuth } from '../../../contexts/AuthContext'
-import { useHistory } from 'react-router-dom'
 
 function PayPage() {
-  const { currentUser } = useAuth()
-
   return (
     <div>
       <h1>Purchase</h1>

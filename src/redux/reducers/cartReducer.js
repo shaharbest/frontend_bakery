@@ -1,25 +1,47 @@
 import * as actions from '../actionTypes/cart'
 import { produce } from 'immer'
 
-function cartReducer(state = {}, action) {
+function cartReducer(state = [], action) {
+  let nextState
+  let index
+
   switch (action.type) {
     case actions.ADD_PRODUCT_UNITS_TO_CART:
-      const { productId, unitsCount } = action.payload
-      return produce(state, (draft) => {
-        draft[productId] =
-          (state[productId] ? state[productId] : 0) + unitsCount
+      index = state.findIndex((pair) => pair[0] === action.payload.productId)
+
+      nextState = produce(state, (draft) => {
+        if (index === -1) {
+          draft.push([action.payload.productId, action.payload.unitsCount])
+        } else {
+          draft[index][1] += action.payload.unitsCount
+        }
       })
+      return nextState
     case actions.REMOVE_PRODUCT_FROM_CART:
-      const { [action.payload.productId]: removedProperty, ...restObj } = state
-      return restObj
-    case actions.ASSIGN_CONTENT_TO_CART:
-      return { ...action.payload.cart }
+      index = state.findIndex((pair) => pair[0] === action.payload.productId)
+
+      if (index === -1) {
+        return state
+      } else {
+        nextState = produce(state, (draft) => {
+          draft.splice(index, 1)
+        })
+        return nextState
+      }
     case actions.RESET_CART:
-      return {}
+      nextState = []
+      return nextState
     case actions.ASSIGN_PRODUCT_UNIT_COUNT:
-      return produce(state, (draft) => {
-        draft[action.payload.productId] = action.payload.unitsCount
+      index = state.findIndex((pair) => pair[0] === action.payload.productId)
+
+      nextState = produce(state, (draft) => {
+        if (index === -1) {
+          draft.push([action.payload.productId, action.payload.unitsCount])
+        } else {
+          draft[index][1] = action.payload.unitsCount
+        }
       })
+      return nextState
     default:
       return state
   }
