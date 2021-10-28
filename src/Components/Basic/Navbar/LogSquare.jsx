@@ -29,14 +29,22 @@ function LoggedInOptions({ email }) {
       <FontAwesomeIcon icon={['fas', 'user']} />
       {getEmailPrefix(email)}
       {active && (
-        <ul className="absolute top-full bg-d3 w-24 z-10">
-          <li>
-            <Link to="/profile">profile</Link>
-          </li>
-          <li onClick={() => dispatch(logout())}>logout</li>
-        </ul>
+        <LoggedInMenu>
+          <Link to="/profile">profile</Link>
+          <div onClick={() => dispatch(logout())}>logout</div>
+        </LoggedInMenu>
       )}
     </div>
+  )
+}
+
+function LoggedInMenu({ children }) {
+  return (
+    <ul className="absolute top-full bg-d3 w-24 z-10">
+      {children.map((curChild) => (
+        <li className="hover:bg-gray-600">{curChild}</li>
+      ))}
+    </ul>
   )
 }
 

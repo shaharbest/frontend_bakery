@@ -23,10 +23,6 @@ const links = [
     to: 'admin',
     label: 'Admin',
   },
-  {
-    to: 'profile',
-    label: 'Profile',
-  },
 ]
 
 export default links
