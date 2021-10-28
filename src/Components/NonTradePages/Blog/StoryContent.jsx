@@ -10,23 +10,21 @@ function StoryContent({ content }) {
 
   return (
     <div>
-      <div>
-        <p
-          className={`m-1 overflow-hidden break-normal text-justify max-w-xl mx-auto ${
-            !showMore && 'h-16'
-          }`}
-          onClick={() => setShowMore(true)}
+      <p
+        className={`m-1 overflow-hidden break-normal text-justify max-w-xl mx-auto ${
+          !showMore && 'h-16'
+        }`}
+        onClick={() => setShowMore(true)}
+      >
+        {content}
+      </p>
+      <div className="flex justify-center">
+        <button
+          className="btn m-1 overflow-scrollbtn w-48"
+          onClick={() => toggleShowMore()}
         >
-          {content}
-        </p>
-        <div className="flex justify-center">
-          <button
-            className="btn m-1 overflow-scrollbtn w-48"
-            onClick={() => toggleShowMore()}
-          >
-            {showMore ? 'show less' : 'show more'}
-          </button>
-        </div>
+          {showMore ? 'show less' : 'show more'}
+        </button>
       </div>
     </div>
   )

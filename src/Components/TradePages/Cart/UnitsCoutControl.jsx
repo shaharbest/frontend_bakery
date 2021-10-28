@@ -17,7 +17,6 @@ function UnitsCoutControl({ val, productId }) {
         minLength="1"
         onChange={(e) => {
           setCount(parseInt(e.target.value))
-          const count = console.log('count:', e.target.value)
           dispatch(assignProductUnitsCount(productId, parseInt(e.target.value)))
         }}
         value={count}

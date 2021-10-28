@@ -6,6 +6,7 @@ import categoriesListReducer from './productListReducer'
 import productDetailsReducer from './productDetailsReducer'
 import userLoginReducer from './userReducer'
 import couponReducer from './couponReducer'
+import blogPostListReducer from './blogPostListReducer'
 import { createBrowserHistory } from 'history'
 import { connectRouter } from 'connected-react-router'
 import { adminReducer } from 'react-admin'
@@ -18,6 +19,7 @@ export default combineReducers({
   admin: adminReducer,
   router: connectRouter(history),
   productList: productListReducer,
+  blogPostList: blogPostListReducer,
   productGroupList: productGroupListReducer,
   categoriesList: categoriesListReducer,
   productDetails: productDetailsReducer,

@@ -5,7 +5,8 @@ import CartResetButton from './CartResetButton'
 import { getPriceTag } from '../../Utils/price'
 
 function CartSide({ isCouponActive, cart, productListState }) {
-  const { loading, error, products } = productListState
+  // const { loading, error, products } = productListState
+  const { products } = productListState
 
   return (
     <div className="flex flex-col items-center h-full justify-center gap-3">

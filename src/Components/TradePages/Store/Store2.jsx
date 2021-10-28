@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { listProducts } from '../../../redux/actions/productsActions'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
 import Products from './Products'
 import Pagination from './Pagination'
 

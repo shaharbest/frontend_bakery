@@ -1,13 +1,32 @@
-import React from 'react'
-import { getBlogStories } from '../../../DataBaseAccess'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { listBlogPosts } from '../../../redux/actions/blogPostActions'
 import SingleStory from './SingleStory'
 
 function BlogPage() {
+  const dispatch = useDispatch()
+
+  const { loading, error, blogPosts } = useSelector(
+    (state) => state.blogPostList
+  )
+
+  useEffect(() => {
+    dispatch(listBlogPosts())
+  }, [dispatch])
+
   return (
-    <div className="bg-d2 p-3 flex flex-col gap-3">
-      {getBlogStories().map((curStory) => (
-        <SingleStory key={curStory.id} story={curStory} />
-      ))}
+    <div>
+      {loading ? (
+        <h2>loading...</h2>
+      ) : error ? (
+        <h3>{error}</h3>
+      ) : (
+        <div className="bg-d2 p-3 flex flex-col gap-3">
+          {blogPosts.map((curStory) => (
+            <SingleStory key={curStory.id} story={curStory} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
