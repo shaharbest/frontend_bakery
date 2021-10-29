@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import CartTopIcon from './CartTopIcon'
-import Search from '../../Utils/Search'
+import Search from './Search'
 import Burger from './Burger'
 import PagesMenu from './PagesMenu'
 import NavLeftSide from './NavLeftSide'
@@ -20,9 +20,9 @@ function Navbar() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between px-5">
+      <div className="flex justify-between px-5 flex-wrap md:flex-nowrap">
         <NavLeftSide />
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-3 items-center flex-wrap md:flex-nowrap">
           <Search />
           <LogSquare />
           <CartTopIcon count={Object.keys(cart).length} />

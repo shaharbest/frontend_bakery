@@ -11,13 +11,13 @@ function Search({ history }) {
         history.push(`/store?q="${val}"`)
       }}
     >
-      <div className="flex overflow-hidden rounded items-center h-10 w-60">
-        <button className="h-full  w-1/4 bg-d4">
+      <div className="flex gap-1 overflow-hidden rounded items-center h-10">
+        <button className="h-full bg-d4 px-2">
           <FontAwesomeIcon className="p-1" size="2x" icon={['fas', 'search']} />
         </button>
         <input
           name="searched_string"
-          className="px-2 w-3/4 border h-full"
+          className="px-2 w-32 border h-full"
           type="text"
         />
       </div>

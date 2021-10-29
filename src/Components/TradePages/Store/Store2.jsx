@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { withRouter } from 'react-router-dom'
 import { listProducts } from '../../../redux/actions/productsActions'
 import { useDispatch, useSelector } from 'react-redux'
 import Products from './Products'
@@ -8,7 +7,7 @@ import Pagination from './Pagination'
 function Store2() {
   const dispatch = useDispatch()
   const [currentPage, setCurrentPage] = useState(1)
-  const [productsPerPage] = useState(6)
+  const [productsPerPage] = useState(10)
 
   const { loading, error, products } = useSelector((state) => state.productList)
 
@@ -29,7 +28,6 @@ function Store2() {
 
   return (
     <div>
-      <h1>store2</h1>
       {loading ? (
         <h2>loading...</h2>
       ) : error ? (
@@ -39,7 +37,7 @@ function Store2() {
           <div className="">
             <Products products={currentProducts} />
           </div>
-          <div className="">
+          <div className="my-1">
             <Pagination
               productsPerPage={productsPerPage}
               totalProducts={products.length}
@@ -52,4 +50,4 @@ function Store2() {
   )
 }
 
-export default withRouter(Store2)
+export default Store2

@@ -6,8 +6,7 @@ import ProductImg from './ProductImg'
 import { Link } from 'react-router-dom'
 import Skeleton from 'react-loading-skeleton'
 
-const containerClasses =
-  'w-full md:w-auto border-l1 text-center p-2 flex flex-col'
+const containerClasses = 'w-full md:w-auto text-center p-2 flex flex-col border'
 
 function ProductCard({ product }) {
   if (product) {
@@ -43,7 +42,11 @@ function ProductCard({ product }) {
 }
 
 function ProductName({ name }) {
-  return <h2 className="p-2">{name}</h2>
+  return (
+    <div className="h-20 flex items-center justify-center">
+      <h2>{name}</h2>
+    </div>
+  )
 }
 
 function Price({ price }) {
