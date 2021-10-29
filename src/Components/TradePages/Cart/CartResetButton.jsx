@@ -6,7 +6,7 @@ function CartResetButton() {
   const dispatch = useDispatch()
 
   return (
-    <button onClick={() => dispatch(resetCart())} className="btn w-28">
+    <button onClick={() => dispatch(resetCart())} className="btn">
       reset
     </button>
   )

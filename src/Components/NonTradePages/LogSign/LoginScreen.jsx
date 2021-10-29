@@ -25,7 +25,7 @@ function LoginScreen({ location, history }) {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="py-2 flex flex-col gap-2">
       <h1>Log In</h1>
       {error && <h2>{error}</h2>}
       {loading && <h2>loading</h2>}

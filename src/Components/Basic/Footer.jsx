@@ -8,10 +8,7 @@ function Footer() {
       <div className="space-x-1">
         {Object.values(getDomainMap()).map((curDomain, index) => (
           <a key={index} href={curDomain.path}>
-            <FontAwesomeIcon
-              className="text-l2"
-              icon={['fab', curDomain.icon]}
-            />
+            <FontAwesomeIcon icon={['fab', curDomain.icon]} />
           </a>
         ))}
       </div>

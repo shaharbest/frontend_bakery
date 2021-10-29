@@ -37,7 +37,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="text-l2 App mx-0 h-screen flex flex-col">
+        <div className="App mx-0 h-screen flex flex-col">
           <Header />
           <SkeletonTheme
             baseColor="#d8c4aa"
@@ -45,7 +45,7 @@ function App() {
             // borderRadius="0.5rem"
             // duration={4}
           >
-            <main className="flex-1 overflow-y-auto">
+            <main className="overflow-y-auto h-full">
               <Switch>{routesList}</Switch>
             </main>
           </SkeletonTheme>

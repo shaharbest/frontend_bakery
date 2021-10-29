@@ -9,7 +9,7 @@ function CartSide({ isCouponActive, cart, productListState }) {
   const { products } = productListState
 
   return (
-    <div className="flex flex-col items-center h-full justify-center gap-3">
+    <aside className="flex flex-col items-center h-full justify-center gap-3">
       <div className="flex items-center gap-3">
         <FontAwesomeIcon size="7x" icon={['fas', 'shopping-cart']} />
         {products && products.length > 0 && (
@@ -17,7 +17,7 @@ function CartSide({ isCouponActive, cart, productListState }) {
         )}
       </div>
       {cart.length > 0 && <CartButtonsDiv />}
-    </div>
+    </aside>
   )
 }
 
@@ -43,7 +43,7 @@ function CartButtonsDiv() {
   return (
     <div className="flex justify-center gap-1">
       <CartResetButton />
-      <button onClick={() => history.push('/pay')} className="btn w-28">
+      <button onClick={() => history.push('/pay')} className="btn">
         pay
       </button>
     </div>

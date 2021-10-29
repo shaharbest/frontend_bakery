@@ -15,7 +15,7 @@ function AllGroupsProducts() {
   }, [dispatch])
 
   return (
-    <section className="my-2">
+    <div>
       {loading ? (
         <>
           <GroupCarousel />
@@ -29,7 +29,7 @@ function AllGroupsProducts() {
           <GroupCarousel key={curGroup.id} group={curGroup} />
         ))
       )}
-    </section>
+    </div>
   )
 }
 

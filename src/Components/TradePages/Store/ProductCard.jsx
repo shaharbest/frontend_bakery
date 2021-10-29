@@ -14,7 +14,7 @@ function ProductCard({ product }) {
       product
 
     return (
-      <div className={containerClasses}>
+      <section className={containerClasses}>
         <ProductName name={name} />
         <Link to={`/product/${id}`}>
           <ProductImg image={mainImagePath} />
@@ -23,11 +23,11 @@ function ProductCard({ product }) {
         <StarsRatingIcon grade={rated} />
         <CategoriesDiv categories={categories} />
         <IsInStock isInStock={isInStock} />
-      </div>
+      </section>
     )
   } else {
     return (
-      <div className={containerClasses}>
+      <section className={containerClasses}>
         <h2>
           <Skeleton className="w-32" />
         </h2>
@@ -36,7 +36,7 @@ function ProductCard({ product }) {
         <StarsRatingIcon grade={5} />
         <Skeleton className="w-28" />
         <Skeleton className="w-36" />
-      </div>
+      </section>
     )
   }
 }
@@ -44,7 +44,7 @@ function ProductCard({ product }) {
 function ProductName({ name }) {
   return (
     <div className="h-20 flex items-center justify-center">
-      <h2>{name}</h2>
+      <h3>{name}</h3>
     </div>
   )
 }

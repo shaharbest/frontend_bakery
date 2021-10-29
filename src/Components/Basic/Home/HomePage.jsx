@@ -4,10 +4,10 @@ import AllGroupsProducts from './AllGroupsProducts'
 
 function HomePage() {
   return (
-    <main>
+    <>
       <BakeryBanner />
       <AllGroupsProducts />
-    </main>
+    </>
   )
 }
 

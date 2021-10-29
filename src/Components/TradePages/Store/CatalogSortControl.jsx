@@ -9,8 +9,8 @@ function CatalogSortControl({
 }) {
   return (
     <div className="m-1">
-      <button className="w-20 bg-d4 border m-1" onClick={sortDirToggle}>
-        <FontAwesomeIcon className="text-l4" icon={['fas', 'arrows-alt-v']} />
+      <button className="btn w-20 m-1" onClick={sortDirToggle}>
+        <FontAwesomeIcon icon={['fas', 'arrows-alt-v']} />
       </button>
 
       <select className="w-auto" onChange={handleCategoryChange}>

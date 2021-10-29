@@ -4,11 +4,11 @@ import Comments from './Comments'
 
 function SingleStory({ story }) {
   return (
-    <div className="p-2 border bg-d1 max-w-xl mx-auto">
-      <h3 className="text-right">
+    <section className="p-2 border max-w-xl mx-auto">
+      <h4 className="text-right">
         {new Date(story.datePosted).toLocaleDateString('en-GB')}
-      </h3>
-      <h1>{story.title}</h1>
+      </h4>
+      <h2>{story.title}</h2>
       <div>
         <img
           className="w-full mx-auto my-1"
@@ -18,7 +18,7 @@ function SingleStory({ story }) {
       </div>
       <StoryContent content={story.content} />
       <Comments comments={story.comments} />
-    </div>
+    </section>
   )
 }
 

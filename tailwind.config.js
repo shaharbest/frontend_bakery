@@ -5,35 +5,41 @@ const brown = {
   d2: '#201104',
   d3: '#2D1806',
   d4: '#482609',
+  d5: '#482609',
   l1: '#FFFFFF',
   l2: '#cebfb1',
   l3: '#f0d1a0',
-  l4: '#d8c4aa'
+  l4: '#d8c4aa',
+  l5: '#966135',
 }
+
+const chosen = brown
 
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: "media", // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     screens: {
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
       '2xl': '1536px',
     },
     extend: {
       colors: {
-        d1: brown.d1,
-        d2: brown.d2,
-        d3: brown.d3,
-        d4: brown.d4,
-        l1: brown.l1,
-        l2: brown.l2,
-        l3: brown.l3,
-        l4: brown.l4,
-      }
-    }
+        d1: chosen.d1,
+        d2: chosen.d2,
+        d3: chosen.d3,
+        d4: chosen.d4,
+        d5: chosen.d5,
+        l1: chosen.l1,
+        l2: chosen.l2,
+        l3: chosen.l3,
+        l4: chosen.l4,
+        l5: chosen.l5,
+      },
+    },
   },
   variants: {
     extend: {},

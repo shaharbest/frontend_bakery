@@ -20,34 +20,36 @@ function ContactDetails() {
   }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={(data, { setSubmitting }) => {
-        setSubmitting(true)
-        console.log(data)
-        setSubmitting(false)
-      }}
-    >
-      {({ values, errors, isSubmitting, handleSubmit, isValid, touched }) => (
-        <Form>
-          <div className="text-center grid grid-cols-1 md:grid-cols-2 md:border-t md:border-l p-5 gap-5">
-            <div className="order-1">
-              <ContactFormContant />
+    <section>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={(data, { setSubmitting }) => {
+          setSubmitting(true)
+          console.log(data)
+          setSubmitting(false)
+        }}
+      >
+        {({ values, errors, isSubmitting, handleSubmit, isValid, touched }) => (
+          <Form>
+            <div className="text-center grid grid-cols-1 md:grid-cols-2 md:border-t md:border-l p-5 gap-5">
+              <div className="order-1">
+                <ContactFormContant />
+              </div>
+              <div className="order-3 md:order-2">
+                <ContactInfo />
+              </div>
+              <div className="order-2 md:order-3">
+                <FormButtonDiv />
+              </div>
+              <div className="order-4">
+                <SocialMediaIcons />
+              </div>
             </div>
-            <div className="order-3 md:order-2">
-              <ContactInfo />
-            </div>
-            <div className="order-2 md:order-3">
-              <FormButtonDiv />
-            </div>
-            <div className="order-4">
-              <SocialMediaIcons />
-            </div>
-          </div>
-        </Form>
-      )}
-    </Formik>
+          </Form>
+        )}
+      </Formik>
+    </section>
   )
 }
 

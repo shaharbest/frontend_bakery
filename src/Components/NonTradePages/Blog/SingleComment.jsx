@@ -7,7 +7,7 @@ function SingleComment({ comment }) {
       <div className="w-44">
         <UserCard userId={comment.userId} />
       </div>
-      <div className="bg-d3 w-full p-1">{comment.content}</div>
+      <div className="w-full p-1">{comment.content}</div>
     </div>
   )
 }

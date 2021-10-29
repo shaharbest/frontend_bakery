@@ -3,12 +3,12 @@ import React from 'react'
 function ContactInfo() {
   return (
     <div>
-      <h2 className="p-0">Contact</h2>
-      <h3>bestshahar@gmail.com</h3>
-      <h2 className="p-0">Based in</h2>
+      <h3 className="p-0">Contact</h3>
+      <h4>bestshahar@gmail.com</h4>
+      <h3 className="p-0">Based in</h3>
       <address>
-        <h3>Tirat Carmel</h3>
-        <h3>Israel</h3>
+        <h4>Tirat Carmel</h4>
+        <h4>Israel</h4>
       </address>
     </div>
   )

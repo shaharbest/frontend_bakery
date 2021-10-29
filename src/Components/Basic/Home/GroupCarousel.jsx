@@ -9,8 +9,8 @@ function GroupCarousel({ group }) {
   const [activeItemIndex, setActiveItemIndex] = useState(0)
   const chevronWidth = 40
   return (
-    <div>
-      <div className="grid grid-cols-2 justify-items-center py-2">
+    <section className="m-4 py-2">
+      <div className="grid grid-cols-2 justify-items-center p-2">
         {group ? (
           <>
             <h2 className="text-left">{group.name}</h2>
@@ -55,7 +55,7 @@ function GroupCarousel({ group }) {
               })}
         </ItemsCarousel>
       </div>
-    </div>
+    </section>
   )
 }
 

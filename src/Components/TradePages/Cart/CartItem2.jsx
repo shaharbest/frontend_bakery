@@ -4,10 +4,10 @@ import { getPriceTag } from '../../Utils/price'
 
 function CartItem2({ product, countItems }) {
   return (
-    <div className="border p-1 m-1 grid grid-cols-1 md:grid-cols-2 gap-1 items-center text-2xl">
+    <section className="border p-2 m-3 grid grid-cols-1 md:grid-cols-2 gap-1 items-center text-2xl">
       <ProductDetails product={product} />
       <PriceControl product={product} countItems={countItems} />
-    </div>
+    </section>
   )
 }
 

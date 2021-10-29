@@ -29,10 +29,10 @@ function Product({ match }) {
       ) : (
         <ProductProvider product={product}>
           <div className="block md:flex rounded overflow-hidden">
-            <div className="w-full md:w-2/3 p-2 bg-l2 dark:bg-d2">
+            <div className="w-full md:w-2/3 p-2">
               <ProductFront />
             </div>
-            <div className="flex flex-col justify-center w-full md:w-1/3 p-2 space-y-1 bg-l3 dark:bg-d3">
+            <div className="flex flex-col justify-center w-full md:w-1/3 p-2 space-y-1">
               <ProductDetails />
             </div>
           </div>
