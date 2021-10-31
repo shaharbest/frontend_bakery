@@ -6,6 +6,7 @@
   display: block;
 }
 
+nav,
 header,
 footer,
 main {
@@ -35,6 +36,7 @@ aside {
 
 .chosen {
   @apply bg-l3 text-d2;
+  @apply dark:bg-d3 dark:text-l2;
 }
 
 /* textarea,

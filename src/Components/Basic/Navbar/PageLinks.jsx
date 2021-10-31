@@ -5,7 +5,7 @@ function PageLink({ label, to }) {
   return (
     <li>
       <Link
-        className="flex px-3 flex-col justify-center h-full text-center hover:bg-gray-600"
+        className="flex flex-col justify-center h-full text-center hover:bg-l3 hover:text-d2 md:w-16"
         to={to}
       >
         {label}

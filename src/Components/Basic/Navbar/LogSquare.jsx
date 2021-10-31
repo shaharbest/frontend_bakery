@@ -24,9 +24,8 @@ function LoggedInOptions({ email }) {
   return (
     <div
       onClick={() => toggleActive()}
-      className="text-center flex flex-col items-center relative"
+      className="cursor-pointer text-center flex flex-col items-center relative"
     >
-      <FontAwesomeIcon icon={['fas', 'user']} />
       {getEmailPrefix(email)}
       {active && (
         <LoggedInMenu>
@@ -40,21 +39,20 @@ function LoggedInOptions({ email }) {
 
 function LoggedInMenu({ children }) {
   return (
-    <ul className="absolute top-full bg-d3 w-24 z-10">
-      {children.map((curChild) => (
-        <li className="hover:bg-gray-600">{curChild}</li>
-      ))}
-    </ul>
+    <nav className="border absolute top-full w-24 z-10">
+      <ul>
+        {children.map((curChild) => (
+          <li className="hover:bg-gray-600">{curChild}</li>
+        ))}
+      </ul>
+    </nav>
   )
 }
 
 function LoginLink() {
   return (
     <Link to="/login">
-      <div className="text-center flex flex-col items-center">
-        <FontAwesomeIcon icon={['fas', 'user']} />
-        login
-      </div>
+      <FontAwesomeIcon icon={['fas', 'user']} />
     </Link>
   )
 }

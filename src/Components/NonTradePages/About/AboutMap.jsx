@@ -15,25 +15,22 @@ function AboutMap() {
   const position = [32.7624806, 34.9681203]
 
   return (
-    <div>
-      <MapContainer
-        center={position}
-        zoom={9}
-        scrollWheelZoom={false}
-        className="w-10/12 mx-auto"
-        style={{ height: '400px' }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position}>
-          <Popup>
-            Shahar <br /> Bakery
-          </Popup>
-        </Marker>
-      </MapContainer>
-    </div>
+    <MapContainer
+      center={position}
+      zoom={9}
+      scrollWheelZoom={false}
+      style={{ height: '400px' }}
+    >
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <Marker position={position}>
+        <Popup>
+          Shahar <br /> Bakery
+        </Popup>
+      </Marker>
+    </MapContainer>
   )
 }
 
