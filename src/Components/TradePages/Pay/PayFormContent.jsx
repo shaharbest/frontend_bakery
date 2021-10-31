@@ -93,18 +93,26 @@ function AddressInput() {
         name="streetName"
         placeholder="street name"
         type="text"
+        fieldAdditionaClass="text-center"
       />
       <ShaharTextField
         name="streetNum"
         placeholder="street number"
         type="text"
+        fieldAdditionaClass="text-center"
       />
       <ShaharTextField
         name="apartmentNum"
         placeholder="apartment number"
         type="text"
+        fieldAdditionaClass="text-center"
       />
-      <ShaharTextField name="city" placeholder="city" type="text" />
+      <ShaharTextField
+        fieldAdditionaClass="text-center"
+        name="city"
+        placeholder="city"
+        type="text"
+      />
     </>
   )
 }
@@ -116,8 +124,14 @@ function ContactInput() {
         name="email"
         placeholder="youremail@domain.com"
         type="text"
+        fieldAdditionaClass="text-center"
       />
-      <ShaharTextField name="phone" placeholder="123-1234" type="text" />
+      <ShaharTextField
+        name="phone"
+        placeholder="123-1234"
+        type="text"
+        fieldAdditionaClass="text-center"
+      />
     </>
   )
 }
@@ -125,8 +139,18 @@ function ContactInput() {
 function NameInputs() {
   return (
     <>
-      <ShaharTextField name="firstName" placeholder="first name" type="text" />
-      <ShaharTextField name="lastName" placeholder="last name" type="text" />
+      <ShaharTextField
+        name="firstName"
+        placeholder="first name"
+        type="text"
+        fieldAdditionaClass="text-center"
+      />
+      <ShaharTextField
+        name="lastName"
+        placeholder="last name"
+        type="text"
+        fieldAdditionaClass="text-center"
+      />
     </>
   )
 }

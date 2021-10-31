@@ -27,7 +27,7 @@ function Store2() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
-    <div>
+    <div className="h-full relative">
       {loading ? (
         <h2>loading...</h2>
       ) : error ? (
@@ -37,7 +37,7 @@ function Store2() {
           <div className="">
             <Products products={currentProducts} />
           </div>
-          <div className="my-1">
+          <div className="my-1 absolute bottom-2">
             <Pagination
               productsPerPage={productsPerPage}
               totalProducts={products.length}

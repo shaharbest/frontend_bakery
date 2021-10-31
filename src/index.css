@@ -57,6 +57,7 @@ select {
 
   h1 {
     @apply text-5xl;
+    @apply py-5;
   }
   h2 {
     @apply text-4xl;

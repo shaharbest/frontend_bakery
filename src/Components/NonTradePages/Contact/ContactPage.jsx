@@ -11,7 +11,7 @@ function ContactPage() {
         </div>
         <div className="w-full md:w-2/3 flex flex-col justify-between">
           <div className="h-full flex flex-col justify-center">
-            <h1 className="py-5">Contact Us</h1>
+            <h1>Contact Us</h1>
           </div>
           <ContactDetails />
           <div className="md:hidden">

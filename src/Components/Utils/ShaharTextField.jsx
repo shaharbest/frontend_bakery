@@ -3,12 +3,19 @@ import { ErrorMessage, Field, useField } from 'formik'
 
 const errorTextColor = 'red-500'
 
-function ShaharTextField({ type, as, placeholder, ...props }) {
+function ShaharTextField({
+  type,
+  as,
+  placeholder,
+  fieldAdditionaClass = '',
+  className = '',
+  ...props
+}) {
   const [field, meta] = useField(props)
   const errorText = meta.error && meta.touched ? meta.error : ''
   return (
     <div
-      className={`text-center ${
+      className={`${className} ${
         errorText && 'p-1 border-2 border-dashed border-' + errorTextColor
       }`}
     >
@@ -17,7 +24,7 @@ function ShaharTextField({ type, as, placeholder, ...props }) {
           {...field}
           placeholder={placeholder}
           type={type}
-          className="text-center w-full"
+          className={fieldAdditionaClass}
           as={as}
         />
         <ErrorMessage

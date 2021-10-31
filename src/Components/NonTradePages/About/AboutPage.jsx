@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <div className="overflow-x-hidden flex flex-col gap-10 my-11 mx-11">
       <section className="p-3">
-        <h1 className="py-5">About Us</h1>
+        <h1>About Us</h1>
         <article>
           <img
             alt="baker"

@@ -36,7 +36,7 @@ function ContactDetails() {
               <div className="order-1">
                 <ContactFormContant />
               </div>
-              <div className="order-3 md:order-2">
+              <div className="order-3 md:order-2 flex flex-col justify-center">
                 <ContactInfo />
               </div>
               <div className="order-2 md:order-3">

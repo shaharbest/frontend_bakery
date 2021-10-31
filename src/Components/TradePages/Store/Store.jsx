@@ -94,7 +94,7 @@ function Store({ location }) {
     <h3>{error}</h3>
   ) : (
     <div className="flex flex-col md:flex-row  h-full ">
-      <div className="md:h-full flex flex-col md:mx-1 px-1">
+      <aside className="md:h-full flex flex-col md:mx-1 p-2">
         <CatalogControls
           updateIsInStock={updateIsInStock}
           updateCategory={updateCategory}
@@ -104,7 +104,7 @@ function Store({ location }) {
           isInStockOptions={isInStockOptions}
           updateGroupCheck={updateGroupCheck}
         />
-      </div>
+      </aside>
 
       <div className="w-full flex flex-col overflow-y-hidden">
         <div className="flex justify-center">

@@ -13,7 +13,7 @@ function CatalogControls({
   updateGroupCheck,
 }) {
   return (
-    <aside>
+    <>
       <div className="text-center flex justify-around">
         <CatalogSelect
           labelContent="is in stock"
@@ -38,7 +38,7 @@ function CatalogControls({
           />
         ))}
       </div>
-    </aside>
+    </>
   )
 }
 

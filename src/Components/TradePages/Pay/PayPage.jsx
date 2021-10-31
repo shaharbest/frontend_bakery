@@ -3,12 +3,10 @@ import PayFormContent from './PayFormContent'
 
 function PayPage() {
   return (
-    <div>
+    <section className="p-3">
       <h1>Purchase</h1>
-      <div className="mt-3">
-        <PayFormContent />
-      </div>
-    </div>
+      <PayFormContent />
+    </section>
   )
 }
 
