@@ -20,9 +20,9 @@ function Navbar() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between px-5 flex-wrap md:flex-nowrap">
+      <div className="flex justify-between px-5">
         <NavLeftSide />
-        <div className="flex gap-3 items-center flex-wrap md:flex-nowrap">
+        <div className="flex gap-3 items-center">
           <Search />
           <LogSquare />
           <CartTopIcon count={Object.keys(cart).length} />
