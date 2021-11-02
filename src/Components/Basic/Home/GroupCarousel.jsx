@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ItemsCarousel from 'react-items-carousel'
 import ProductCard from '../../TradePages/Store/ProductCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,6 +6,16 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 function GroupCarousel({ group }) {
+  const [width, setWindowWidth] = useState(0)
+  useEffect(() => {
+    updateDimensions()
+    window.addEventListener('resize', updateDimensions)
+    return () => window.removeEventListener('resize', updateDimensions)
+  }, [])
+  const updateDimensions = () => {
+    setWindowWidth(window.innerWidth)
+  }
+
   const [activeItemIndex, setActiveItemIndex] = useState(0)
   const chevronWidth = 40
   return (
@@ -29,7 +39,7 @@ function GroupCarousel({ group }) {
         <ItemsCarousel
           requestToChangeActive={setActiveItemIndex}
           activeItemIndex={activeItemIndex}
-          numberOfCards={3}
+          numberOfCards={getCarouselCount(width)}
           gutter={20}
           leftChevron={
             <FontAwesomeIcon size="3x" icon={['fas', 'angle-left']} />
@@ -57,6 +67,14 @@ function GroupCarousel({ group }) {
       </div>
     </section>
   )
+}
+
+function getCarouselCount(width) {
+  const breakingPoints = [700, 1000]
+  const countItems = [1, 2, 3]
+  if (width < breakingPoints[0]) return countItems[0]
+  if (width < breakingPoints[1]) return countItems[1]
+  return countItems[2]
 }
 
 function UpperSkeleton() {
