@@ -17,7 +17,7 @@ import OrderResource from './Resources/Orders/OrderResource'
 
 import { getApiUrl } from '../../../config/api'
 
-import { createTheme } from '@mui/material/styles'
+// import { createTheme } from '@mui/material/styles'
 
 import Dashboard from './Basic/Dashboard'
 import MyLayout from './Basic/MyLayout'
@@ -25,18 +25,18 @@ import MyLayout from './Basic/MyLayout'
 const history = createHashHistory()
 
 function UsersManagementPage() {
-  const darkTheme = createTheme({
-    palette: {
-      mode: 'dark',
-    },
-  })
+  // const darkTheme = createTheme({
+  //   palette: {
+  //     mode: 'dark',
+  //   },
+  // })
 
   return (
     <div>
       <Admin
         history={history}
         layout={MyLayout}
-        theme={darkTheme}
+        // theme={darkTheme}
         authProvider={authProvider}
         dashboard={Dashboard}
         dataProvider={simpleRestProvider(getApiUrl(), httpClient)}

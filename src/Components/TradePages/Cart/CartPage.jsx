@@ -17,13 +17,13 @@ function CartPage() {
           productListState={productListState}
         />
       </div>
-      <div className="order-1 md:order-2">
+      <aside className="order-1 md:order-2">
         <CartSide
           cart={cart}
           isCouponActive={isCouponActive}
           productListState={productListState}
         />
-      </div>
+      </aside>
     </div>
   )
 }

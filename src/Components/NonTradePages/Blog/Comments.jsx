@@ -18,7 +18,9 @@ function Comments({ comments }) {
           </button>
         </div>
         {show &&
-          comments.map((curComment) => <SingleComment comment={curComment} />)}
+          comments.map((curComment, index) => (
+            <SingleComment key={index} comment={curComment} />
+          ))}
       </div>
     </div>
   )

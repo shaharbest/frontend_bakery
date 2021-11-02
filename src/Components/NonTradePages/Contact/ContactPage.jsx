@@ -6,7 +6,7 @@ function ContactPage() {
   return (
     <div>
       <div className="flex">
-        <div className="md:w-1/3 hidden md:block">
+        <div className="hidden md:flex content-center w-1/3">
           <ProfileSection />
         </div>
         <div className="w-full md:w-2/3 flex flex-col justify-between">

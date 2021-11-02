@@ -32,13 +32,4 @@ function ContactFormContant() {
   )
 }
 
-function ContactField({ label, name }) {
-  return (
-    <>
-      <label>{label}</label>
-      <ShaharTextField fieldAdditionaClass="w-28" name={name} type="text" />
-    </>
-  )
-}
-
 export default ContactFormContant
