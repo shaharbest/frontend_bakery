@@ -50,7 +50,7 @@ function ProductName({ name }) {
 }
 
 function Price({ price }) {
-  return <div>{`${price}${getCurrencySymbol()}`}</div>
+  return <div>{`${getCurrencySymbol()} ${price}`}</div>
 }
 
 function CategoriesDiv({ categories }) {

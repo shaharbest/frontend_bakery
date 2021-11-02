@@ -5,21 +5,21 @@ import { useHistory } from 'react-router-dom'
 function BakeryBanner() {
   const history = useHistory()
   return (
-    <div className="overflow-hidden relative">
-      <div className="banner z-10 relative ">
-        <h1 className="top_banner text-8xl mb-12">Shahar's Bakery</h1>
+    <div className="relative">
+      <div className="banner z-10 relative flex flex-col items-center">
+        <h1 className="top_banner text-8xl text-white">Shahar's Bakery</h1>
         <button
-          className="m-1 btn text-4xl bottom_banner block mx-auto p-6"
+          className="bottom_banner btn text-4xl my-5"
           onClick={() => history.push('/store2')}
         >
           store
         </button>
       </div>
-      <div className="absolute inset-0 object-cover">
+      <div className="absolute inset-0">
         <img
           src="images/bakery_wallpaper.jpg"
           alt="banner"
-          className="w-full"
+          className="h-full sm:w-full object-cover"
         />
       </div>
     </div>

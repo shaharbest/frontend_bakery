@@ -9,8 +9,8 @@ function GroupCarousel({ group }) {
   const [activeItemIndex, setActiveItemIndex] = useState(0)
   const chevronWidth = 40
   return (
-    <section className="m-4 py-2">
-      <div className="grid grid-cols-2 justify-items-center p-2">
+    <section className="m-4 py-2 max-w-4xl mx-auto">
+      <div className="flex flex-col sm:flex-row items-center p-2 gap-2 justify-around">
         {group ? (
           <>
             <h2 className="text-left">{group.name}</h2>
@@ -32,7 +32,7 @@ function GroupCarousel({ group }) {
           numberOfCards={3}
           gutter={20}
           leftChevron={
-            <FontAwesomeIcon inverse size="3x" icon={['fas', 'angle-left']} />
+            <FontAwesomeIcon size="3x" icon={['fas', 'angle-left']} />
           }
           rightChevron={
             <FontAwesomeIcon size="3x" icon={['fas', 'angle-right']} />
