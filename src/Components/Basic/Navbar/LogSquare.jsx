@@ -41,8 +41,10 @@ function LoggedInMenu({ children }) {
   return (
     <nav className="border absolute top-full w-24 z-10">
       <ul>
-        {children.map((curChild) => (
-          <li className="hover:bg-gray-600">{curChild}</li>
+        {children.map((curChild, index) => (
+          <li key={index} className="hover:bg-gray-600">
+            {curChild}
+          </li>
         ))}
       </ul>
     </nav>

@@ -17,6 +17,8 @@ import OrderResource from './Resources/Orders/OrderResource'
 
 import { getApiUrl } from '../../../config/api'
 
+import './admin.css'
+
 // import { createTheme } from '@mui/material/styles'
 
 import Dashboard from './Basic/Dashboard'

@@ -29,16 +29,16 @@ function Product({ match }) {
       ) : (
         <ProductProvider product={product}>
           <div className="block md:flex rounded overflow-hidden">
-            <div className="w-full md:w-2/3 p-2">
+            <section className="w-full md:w-2/3 p-2">
               <ProductFront />
-            </div>
-            <div className="flex flex-col justify-center w-full md:w-1/3 p-2 space-y-1">
+            </section>
+            <aside className="flex flex-col justify-center w-full md:w-1/3 p-2 space-y-1">
               <ProductDetails />
-            </div>
+            </aside>
           </div>
           <RelatedProducts />
           <div className="text-center mb-3">
-            <Link className="border py-2 px-4" to="/store">
+            <Link className="border py-2 px-4" to="/store2">
               back to catalog
             </Link>
           </div>

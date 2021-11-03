@@ -1,6 +1,5 @@
 import React from 'react'
 import StarsRatingIcon from '../../Utils/StarsRatingIcon'
-import YesNo from '../../Utils/YesNo'
 import { getCurrencySymbol } from '../../../DataBaseAccess'
 import ProductImg from './ProductImg'
 import { Link } from 'react-router-dom'
@@ -25,14 +24,22 @@ function RealProductCard({ product }) {
     product
   return (
     <>
-      <ProductName name={name} />
-      <Link to={`/product/${id}`}>
+      <h3 className="py-2">{name}</h3>
+      <Link to={`/product/${id}`} className="hover:opacity-75">
         <ProductImg image={mainImagePath} />
       </Link>
-      <Price price={price} />
+      <h4>{categories.map((curCategory) => curCategory.name).join(', ')}</h4>
+      <h4>{`${getCurrencySymbol()} ${price}`}</h4>
       <StarsRatingIcon grade={rated} />
-      <CategoriesDiv categories={categories} />
-      <IsInStock isInStock={isInStock} />
+      <div className="h-10">
+        {!isInStock && (
+          <img
+            className="h-full mx-auto"
+            src="/images/out_of_stock.png"
+            alt="out of stock"
+          />
+        )}
+      </div>
     </>
   )
 }
@@ -49,32 +56,6 @@ function SkeletonProductCard() {
       <Skeleton className="w-28" />
       <Skeleton className="w-36" />
     </>
-  )
-}
-
-function ProductName({ name }) {
-  return (
-    <div className="h-20 flex items-center justify-center">
-      <h3>{name}</h3>
-    </div>
-  )
-}
-
-function Price({ price }) {
-  return <div>{`${getCurrencySymbol()} ${price}`}</div>
-}
-
-function CategoriesDiv({ categories }) {
-  return (
-    <div>{categories.map((curCategory) => curCategory.name).join(', ')}</div>
-  )
-}
-
-function IsInStock({ isInStock }) {
-  return (
-    <div>
-      in stock: <YesNo val={isInStock} />
-    </div>
   )
 }
 

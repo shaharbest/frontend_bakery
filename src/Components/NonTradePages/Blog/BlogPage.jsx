@@ -21,7 +21,7 @@ function BlogPage() {
       ) : error ? (
         <h3>{error}</h3>
       ) : (
-        <div className="p-3 flex flex-col gap-3">
+        <div className="flex flex-col gap-3">
           {blogPosts.map((curStory) => (
             <SingleStory key={curStory.id} story={curStory} />
           ))}

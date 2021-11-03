@@ -37,20 +37,18 @@ function Store2() {
       ) : error ? (
         <h3>{error}</h3>
       ) : (
-        <div className="flex flex-col items-center overflow-y-hidden h-full">
+        <div className="flex flex-col gap-2 items-center overflow-y-hidden h-full justify-between">
           <div
             ref={catalogDivRef}
             className="w-full flex justify-center overflow-y-auto"
           >
             <Products products={currentProducts} />
           </div>
-          <div className="my-3">
-            <Pagination
-              productsPerPage={productsPerPage}
-              totalProducts={products.length}
-              paginate={paginate}
-            />
-          </div>
+          <Pagination
+            productsPerPage={productsPerPage}
+            totalProducts={products.length}
+            paginate={paginate}
+          />
         </div>
       )}
     </div>

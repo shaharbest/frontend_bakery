@@ -32,7 +32,7 @@ function ContactDetails() {
       >
         {({ values, errors, isSubmitting, handleSubmit, isValid, touched }) => (
           <Form>
-            <div className="text-center grid grid-cols-1 md:grid-cols-2 md:border-t md:border-l p-5 gap-5">
+            <div className="text-center grid grid-cols-1 md:grid-cols-2 p-5 gap-5">
               <div className="order-1">
                 <ContactFormContant />
               </div>

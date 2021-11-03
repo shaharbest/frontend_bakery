@@ -7,10 +7,10 @@ const youtubeHeight = 250
 
 function AboutPage() {
   return (
-    <div className="overflow-x-hidden flex flex-col gap-10 my-11 mx-11">
+    <div className="overflow-x-hidden flex flex-col gap-10">
       <section className="p-3">
         <h1>About Us</h1>
-        <article>
+        <article className="text-justify">
           <img
             alt="baker"
             className="md:max-w-xl w-96 md:w-max mx-auto md:float-right p-3"

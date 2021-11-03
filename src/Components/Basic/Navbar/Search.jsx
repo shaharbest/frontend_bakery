@@ -17,7 +17,7 @@ function Search({ history }) {
         </button>
         <input
           name="searched_string"
-          className="px-2 w-24 border h-full"
+          className="px-2 w-24 h-full ounded-r-lg focus:ounded-r-lg"
           type="text"
         />
       </div>

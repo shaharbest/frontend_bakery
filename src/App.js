@@ -45,7 +45,7 @@ function App() {
             // borderRadius="0.5rem"
             // duration={4}
           >
-            <main className="overflow-y-auto h-full">
+            <main className="overflow-y-auto h-full p-2">
               <Switch>{routesList}</Switch>
             </main>
           </SkeletonTheme>

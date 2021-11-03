@@ -15,7 +15,7 @@ function AllGroupsProducts() {
   }, [dispatch])
 
   return (
-    <div>
+    <div className="flex flex-col gap-2 m-2">
       {loading ? (
         <>
           <GroupCarousel />

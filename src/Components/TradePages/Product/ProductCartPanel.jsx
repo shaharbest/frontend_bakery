@@ -1,7 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
-import YesNo from '../../Utils/YesNo'
 import { useProduct } from '../../../contexts/ProductContext'
 import { addProductsUnitsToCart } from '../../../redux/actions/cartActions'
 import { useDispatch } from 'react-redux'
@@ -12,7 +11,7 @@ function ProductCartPanel() {
   const [productUnitsCount, setproductUnitsCount] = useState(1)
 
   return (
-    <div className="inline-block p-1 border">
+    <div className="inline-block p-1">
       {product.isInStock ? (
         <form
           onSubmit={(e) => {
@@ -38,10 +37,11 @@ function ProductCartPanel() {
           ></input>
         </form>
       ) : (
-        <>
-          <YesNo val={product.isInStock} />
-          <span>out of stock</span>
-        </>
+        <img
+          className="w-28 mx-auto"
+          src="/images/out_of_stock.png"
+          alt="out of stock"
+        />
       )}
     </div>
   )

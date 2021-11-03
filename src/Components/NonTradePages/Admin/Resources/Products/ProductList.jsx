@@ -7,7 +7,6 @@ import {
   TextField,
   NumberField,
   TextInput,
-  ReferenceField,
   SimpleList,
   DateField,
   ArrayField,
@@ -15,25 +14,22 @@ import {
   ChipField,
   BooleanField,
 } from 'react-admin'
-// import { useMediaQuery } from '@material-ui/core'
+import { useMediaQuery } from '@material-ui/core'
 
 const productFilters = [<TextInput source="q" label="Search" alwaysOn />]
 
 function ProductList(props) {
-  // const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'))
-  const isSmall = false
+  const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'))
 
   return (
     <List filters={productFilters} {...props}>
       {isSmall ? (
         <SimpleList
           primaryText={(record) => record.name}
-          secondaryText={
-            <ReferenceField reference="categories" source="categoryId">
-              <TextField source="name" />
-            </ReferenceField>
+          secondaryText={(record) =>
+            record.categories.map((curCategory) => curCategory.name).join(', ')
           }
-          rightAvatar={(record) => record.mainImage}
+          rightAvatar={(record) => record.mainImagePath}
         />
       ) : (
         <BigList />

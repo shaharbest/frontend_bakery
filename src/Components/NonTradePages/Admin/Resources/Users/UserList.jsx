@@ -13,22 +13,19 @@ import {
   BooleanField,
 } from 'react-admin'
 
-// import { useMediaQuery } from '@material-ui/core'
+import { useMediaQuery } from '@material-ui/core'
 
 const userFilters = [<TextInput source="q" label="Search" alwaysOn />]
 
 function UserList(props) {
-  // const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'))
-  const isSmall = false
+  const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'))
 
   return (
     <List filters={userFilters} {...props}>
       {isSmall ? (
         <SimpleList
-          primaryText={(record) =>
-            `${record.name.firstname} ${record.name.lastname}`
-          }
-          rightAvatar={(record) => record.avatarImage}
+          primaryText={(record) => `${record.firstName} ${record.lastName}`}
+          rightAvatar={(record) => record.avatarImagePath}
         />
       ) : (
         <BigList />

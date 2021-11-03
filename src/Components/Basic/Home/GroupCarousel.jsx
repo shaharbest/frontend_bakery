@@ -17,9 +17,8 @@ function GroupCarousel({ group }) {
   }
 
   const [activeItemIndex, setActiveItemIndex] = useState(0)
-  const chevronWidth = 40
   return (
-    <section className="m-4 py-2 max-w-4xl mx-auto">
+    <div className="py-2 w-full">
       <div className="flex flex-col sm:flex-row items-center p-2 gap-2 justify-around">
         {group ? (
           <>
@@ -35,7 +34,7 @@ function GroupCarousel({ group }) {
           </>
         )}
       </div>
-      <div style={{ padding: `0 ${chevronWidth}px` }}>
+      <div className="px-10">
         <ItemsCarousel
           requestToChangeActive={setActiveItemIndex}
           activeItemIndex={activeItemIndex}
@@ -48,7 +47,7 @@ function GroupCarousel({ group }) {
             <FontAwesomeIcon size="3x" icon={['fas', 'angle-right']} />
           }
           outsideChevron
-          chevronWidth={chevronWidth}
+          chevronWidth={40}
         >
           {group
             ? group.products.map((curProduct) => (
@@ -65,7 +64,7 @@ function GroupCarousel({ group }) {
               })}
         </ItemsCarousel>
       </div>
-    </section>
+    </div>
   )
 }
 

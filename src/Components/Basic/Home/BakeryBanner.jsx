@@ -7,7 +7,14 @@ function BakeryBanner() {
   return (
     <div className="relative">
       <div className="banner z-10 relative flex flex-col items-center">
-        <h1 className="top_banner text-8xl text-white">Shahar's Bakery</h1>
+        <h1
+          style={{
+            textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
+          }}
+          className="top_banner text-8xl text-white"
+        >
+          Shahar's Bakery
+        </h1>
         <button
           className="bottom_banner btn text-4xl my-5"
           onClick={() => history.push('/store2')}
