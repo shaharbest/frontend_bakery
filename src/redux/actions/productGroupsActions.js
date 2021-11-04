@@ -8,12 +8,19 @@ export const listProductGroups = () => async (dispatch) => {
     const { data } = await axios.get(`${getApiUrl()}/productGroups`)
     dispatch({ type: actions.PRODUCT_GROUP_LIST_SUCCESS, payload: data })
   } catch (err) {
+    let errorField
+
+    if (err.response) {
+      errorField = err.response.data.message
+        ? err.response.data.message
+        : err.response
+    } else {
+      errorField = err.message
+    }
+
     dispatch({
       type: actions.PRODUCT_GROUP_LIST_FAIL,
-      payload:
-        err.response && err.response.data.message
-          ? err.response.data.message
-          : err.response,
+      payload: errorField,
     })
   }
 }
