@@ -5,18 +5,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../../redux/actions/userActions'
 
 function LogSquare() {
-  const userLogin = useSelector((state) => state.userLogin)
+  const userLogin = useSelector(state => state.userLogin)
   const { userInfo } = userLogin
 
-  return userInfo ? <LoggedInOptions email={userInfo.email} /> : <LoginLink />
+  return userInfo ? (
+    <LoggedInOptions fullName={`${userInfo.firstName} ${userInfo.lastName}`} />
+  ) : (
+    <LoginLink />
+  )
 }
 
-function LoggedInOptions({ email }) {
+function LoggedInOptions({ fullName }) {
   const dispatch = useDispatch()
   const [active, setActive] = useState(false)
 
   const toggleActive = () => {
-    setActive((active) => {
+    setActive(active => {
       setActive(!active)
     })
   }
@@ -26,7 +30,7 @@ function LoggedInOptions({ email }) {
       onClick={() => toggleActive()}
       className="cursor-pointer text-center flex flex-col items-center relative"
     >
-      {getEmailPrefix(email)}
+      {fullName}
       {active && (
         <LoggedInMenu>
           <Link to="/profile">profile</Link>
@@ -57,10 +61,6 @@ function LoginLink() {
       <FontAwesomeIcon icon={['fas', 'user']} />
     </Link>
   )
-}
-
-function getEmailPrefix(email) {
-  return email.slice(0, email.indexOf('@'))
 }
 
 export default LogSquare

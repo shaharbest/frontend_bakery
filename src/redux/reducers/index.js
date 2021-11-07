@@ -4,7 +4,12 @@ import productListReducer from './productListReducer'
 import productGroupListReducer from './productGroupListReducer'
 import categoriesListReducer from './productListReducer'
 import productDetailsReducer from './productDetailsReducer'
-import userLoginReducer from './userReducer'
+import {
+  userLoginReducer,
+  userRegisterReducer,
+  userDetailsReducer,
+  userUpdateProfileReducer,
+} from './userReducer'
 import couponReducer from './couponReducer'
 import blogPostListReducer from './blogPostListReducer'
 import { createBrowserHistory } from 'history'
@@ -24,4 +29,7 @@ export default combineReducers({
   categoriesList: categoriesListReducer,
   productDetails: productDetailsReducer,
   userLogin: userLoginReducer,
+  userRegister: userRegisterReducer,
+  userDetails: userDetailsReducer,
+  userUpdateProfile: userUpdateProfileReducer,
 })

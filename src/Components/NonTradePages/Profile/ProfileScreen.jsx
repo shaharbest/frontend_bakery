@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { register } from '../../../redux/actions/userActions'
+import {
+  getUserDetails,
+  updateUserProfile,
+} from '../../../redux/actions/userActions'
 
-function RegisterScreen({ location, history }) {
+function ProfileScreen({ location, history }) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -11,27 +13,51 @@ function RegisterScreen({ location, history }) {
   const [confirmPassword, setConfirmPassword] = useState('')
 
   const dispatch = useDispatch()
-  const userRegister = useSelector(state => state.userRegister)
-  const { loading, error, userInfo } = userRegister
 
-  const redirect = location.search ? location.search.splite('=')[1] : '/'
+  const userDetails = useSelector(state => state.userDetails)
+  const { loading, error, user } = userDetails
+
+  const userLogin = useSelector(state => state.userLogin)
+  const { userInfo } = userLogin
+
+  const userUpdateProfile = useSelector(state => state.userUpdateProfile)
+  const { success } = userUpdateProfile
 
   useEffect(() => {
-    if (userInfo) {
-      history.push(redirect)
+    if (!userInfo) {
+      history.push('/login')
+    } else {
+      if (!user.firstName) {
+        dispatch(getUserDetails('profile'))
+      } else {
+        setFirstName(user.firstName)
+        setLastName(user.lastName)
+        setEmail(user.email)
+      }
     }
-  }, [history, userInfo, redirect])
+  }, [dispatch, history, userInfo, user])
 
   const submitHandler = e => {
     e.preventDefault()
     if (password !== confirmPassword) console.log('not same password')
-    else dispatch(register(firstName, lastName, email, password))
+    else {
+      dispatch(
+        updateUserProfile({
+          id: user._id,
+          firstName,
+          lastName,
+          email,
+          password,
+        })
+      )
+    }
   }
 
   return (
     <div className="py-2 flex flex-col gap-2">
-      <h1>Sign Up</h1>
+      <h1>User Profile</h1>
       {error && <h2>{error.data}</h2>}
+      {success && <h2>Profile Updated</h2>}
       {loading && <h2>loading</h2>}
       <div className="flex flex-col gap-2 w-52 mx-auto">
         <RegisterField
@@ -65,12 +91,9 @@ function RegisterScreen({ location, history }) {
           value={confirmPassword}
         />
         <button className="btn" onClick={submitHandler}>
-          register
+          update
         </button>
       </div>
-      <Link to="/register" className="text-center border block w-36 mx-auto">
-        register
-      </Link>
     </div>
   )
 }
@@ -87,4 +110,4 @@ function RegisterField({ type, placeholder, setFunction, value }) {
   )
 }
 
-export default RegisterScreen
+export default ProfileScreen

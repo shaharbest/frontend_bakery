@@ -2,17 +2,17 @@ import React from 'react'
 import * as yup from 'yup'
 import LogSignForm from './LogSignForm'
 import FormEntry from './FormEntry'
-import { useAuth } from '../../../contexts/AuthContext'
+// import { useAuth } from '../../../contexts/AuthContext'
 
 function SignupPage() {
-  const { signup } = useAuth()
+  // const { signup } = useAuth()
 
   async function handleSubmitData(data) {
-    try {
-      await signup(data.email, data.password)
-    } catch {
-      console.log('failed to create an account')
-    }
+    // try {
+    //   await signup(data.email, data.password)
+    // } catch {
+    //   console.log('failed to create an account')
+    // }
   }
 
   return (

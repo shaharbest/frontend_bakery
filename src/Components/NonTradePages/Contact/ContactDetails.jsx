@@ -4,19 +4,12 @@ import * as yup from 'yup'
 import ContactFormContant from './ContactFormContant'
 import ContactInfo from './ContactInfo'
 import SocialMediaIcons from './SocialMediaIcons'
-import { useAuth } from '../../../contexts/AuthContext'
 
 function ContactDetails() {
-  const { isAuthenticated, currentUser } = useAuth()
-
   const initialValues = {
     fullName: '',
     email: '',
     comment: '',
-  }
-
-  if (isAuthenticated()) {
-    initialValues.email = currentUser.email
   }
 
   return (

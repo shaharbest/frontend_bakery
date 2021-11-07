@@ -2,20 +2,20 @@ import React from 'react'
 import * as yup from 'yup'
 import LogSignForm from './LogSignForm'
 import FormEntry from './FormEntry'
-import { useAuth } from '../../../contexts/AuthContext'
+// import { useAuth } from '../../../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
 
 function SimpleEmailLogin() {
   const history = useHistory()
-  const { login } = useAuth()
+  // const { login } = useAuth()
 
   async function handleSubmitLogin(data) {
-    try {
-      await login(data.email, data.password)
-      history.push('/dashboard')
-    } catch {
-      console.log('failed to login')
-    }
+    // try {
+    //   await login(data.email, data.password)
+    //   history.push('/somewhere')
+    // } catch {
+    //   console.log('failed to login')
+    // }
   }
 
   return (
@@ -24,7 +24,7 @@ function SimpleEmailLogin() {
         title="Login"
         initialValues={signupInitialValues}
         validationSchema={signupValidationSchema}
-        handleSubmitData={(data) => handleSubmitLogin(data)}
+        handleSubmitData={data => handleSubmitLogin(data)}
       >
         <FormEntry label="Email" name="email" />
         <FormEntry label="Password" name="password" type="password" />

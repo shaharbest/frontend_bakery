@@ -5,7 +5,7 @@ import StarsRatingIcon from '../../Utils/StarsRatingIcon'
 import { getPriceTag } from '../../Utils/price'
 import YesNo from '../../Utils/YesNo'
 import { useProduct } from '../../../contexts/ProductContext'
-import { useAuth } from '../../../contexts/AuthContext'
+import { useSelector } from 'react-redux'
 
 const arr = [
   'delivery charge',
@@ -17,7 +17,8 @@ const arr = [
 ]
 
 function ProductDetails() {
-  const { isAuthenticated } = useAuth()
+  const userLogin = useSelector(state => state.userLogin)
+  const { userInfo } = userLogin
   const product = useProduct()
 
   return (
@@ -35,7 +36,7 @@ function ProductDetails() {
         ))}
       </div>
       <ProductCartPanel />
-      {isAuthenticated() && (
+      {userInfo && (
         <button className="btn">
           add to favourites <FontAwesomeIcon icon={['fas', 'star']} />
         </button>
@@ -47,7 +48,7 @@ function ProductDetails() {
 function CategoriesDiv({ product }) {
   const content =
     product && product.categories
-      ? product.categories.map((curCategory) => curCategory.name).join(', ')
+      ? product.categories.map(curCategory => curCategory.name).join(', ')
       : ''
 
   return <div>{content}</div>

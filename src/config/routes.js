@@ -22,20 +22,12 @@ const routes = [
     component: Pages.BlogPage,
   },
   {
-    path: '/email_login',
-    component: Pages.SimpleEmailLogin,
-  },
-  {
     path: '/login',
     component: Pages.LoginScreen,
   },
   {
     path: '/register',
     component: Pages.RegisterScreen,
-  },
-  {
-    path: '/signup',
-    component: Pages.SignupPage,
   },
   {
     path: '/product/:id',
@@ -57,7 +49,7 @@ const routes = [
   },
   {
     path: '/profile',
-    component: Pages.Profile,
+    component: Pages.ProfileScreen,
     isProtected: true,
   },
 ]

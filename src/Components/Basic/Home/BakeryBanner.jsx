@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 function BakeryBanner() {
   const history = useHistory()
+
   return (
     <div className="relative">
       <div className="banner z-10 relative flex flex-col items-center">
@@ -11,7 +12,7 @@ function BakeryBanner() {
           style={{
             textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
           }}
-          className="top_banner text-8xl text-white"
+          className="top_banner text-7xl md:text-8xl lg:text-9xl text-white"
         >
           Shahar's Bakery
         </h1>
