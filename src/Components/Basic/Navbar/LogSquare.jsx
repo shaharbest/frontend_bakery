@@ -8,14 +8,10 @@ function LogSquare() {
   const userLogin = useSelector(state => state.userLogin)
   const { userInfo } = userLogin
 
-  return userInfo ? (
-    <LoggedInOptions fullName={`${userInfo.firstName} ${userInfo.lastName}`} />
-  ) : (
-    <LoginLink />
-  )
+  return userInfo ? <LoggedInOptions name={userInfo.name} /> : <LoginLink />
 }
 
-function LoggedInOptions({ fullName }) {
+function LoggedInOptions({ name }) {
   const dispatch = useDispatch()
   const [active, setActive] = useState(false)
 
@@ -30,7 +26,7 @@ function LoggedInOptions({ fullName }) {
       onClick={() => toggleActive()}
       className="cursor-pointer text-center flex flex-col items-center relative"
     >
-      {fullName}
+      {name}
       {active && (
         <LoggedInMenu>
           <Link to="/profile">profile</Link>

@@ -4,7 +4,9 @@ import { Admin } from 'react-admin'
 import simpleRestProvider from 'ra-data-simple-rest'
 import { createHashHistory } from 'history'
 
-import { authProvider, httpClient } from './Utils/authProvider'
+import // authProvider,
+// httpClient,
+'./Utils/authProvider'
 
 import UserResource from './Resources/Users/UserResource'
 import BlogPostResource from './Resources/BlogPosts/BlogPostResource'
@@ -39,9 +41,12 @@ function UsersManagementPage() {
         history={history}
         layout={MyLayout}
         // theme={darkTheme}
-        authProvider={authProvider}
+        // authProvider={authProvider}
         dashboard={Dashboard}
-        dataProvider={simpleRestProvider(getApiUrl(), httpClient)}
+        dataProvider={simpleRestProvider(
+          getApiUrl()
+          // httpClient
+        )}
       >
         <UserResource name="users" />
         <ProductResource name="products" />

@@ -1,16 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Formik, Form } from 'formik'
+import FormikControl from '../../Utils/Formik/FormikControl'
 import {
   getUserDetails,
   updateUserProfile,
 } from '../../../redux/actions/userActions'
 
-function ProfileScreen({ location, history }) {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+import { isEmpty } from 'lodash'
+import validationSchema from './validationSchema'
+
+const initialValues = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  streetName: '',
+  streetNumber: '',
+  apartmentNumber: '',
+  postalCode: '',
+  // city: '',
+}
+
+function ProfileScreen({ history }) {
+  const [formValues, setFormValues] = useState(null)
 
   const dispatch = useDispatch()
 
@@ -27,86 +40,129 @@ function ProfileScreen({ location, history }) {
     if (!userInfo) {
       history.push('/login')
     } else {
-      if (!user.firstName) {
+      if (isEmpty(user)) {
         dispatch(getUserDetails('profile'))
       } else {
-        setFirstName(user.firstName)
-        setLastName(user.lastName)
-        setEmail(user.email)
+        setFormValues({
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          phone: user.phone,
+          streetName: user.streetName,
+          streetNumber: user.streetNumber,
+          apartmentNumber: user.apartmentNumber,
+          postalCode: user.postalCode,
+          // city: user.city.name,
+        })
       }
     }
   }, [dispatch, history, userInfo, user])
 
-  const submitHandler = e => {
-    e.preventDefault()
-    if (password !== confirmPassword) console.log('not same password')
-    else {
-      dispatch(
-        updateUserProfile({
-          id: user._id,
-          firstName,
-          lastName,
-          email,
-          password,
-        })
-      )
-    }
+  const onSubmit = values => {
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      streetName,
+      streetNumber,
+      apartmentNumber,
+      postalCode,
+      // city,
+    } = values
+    dispatch(
+      updateUserProfile({
+        id: user._id,
+        firstName,
+        lastName,
+        email,
+        phone,
+        streetName,
+        streetNumber,
+        apartmentNumber,
+        postalCode,
+        // city,
+      })
+    )
   }
 
   return (
-    <div className="py-2 flex flex-col gap-2">
+    <div>
       <h1>User Profile</h1>
-      {error && <h2>{error.data}</h2>}
-      {success && <h2>Profile Updated</h2>}
-      {loading && <h2>loading</h2>}
-      <div className="flex flex-col gap-2 w-52 mx-auto">
-        <RegisterField
-          type="text"
-          placeholder="first name"
-          setFunction={setFirstName}
-          value={firstName}
-        />
-        <RegisterField
-          type="text"
-          placeholder="last name"
-          setFunction={setLastName}
-          value={lastName}
-        />
-        <RegisterField
-          type="text"
-          placeholder="email"
-          setFunction={setEmail}
-          value={email}
-        />
-        <RegisterField
-          type="password"
-          placeholder="password"
-          setFunction={setPassword}
-          value={password}
-        />
-        <RegisterField
-          type="password"
-          placeholder="confirm password"
-          setFunction={setConfirmPassword}
-          value={confirmPassword}
-        />
-        <button className="btn" onClick={submitHandler}>
-          update
-        </button>
+      <div>
+        {error && <h2>{error.data}</h2>}
+        {success && <h2>Profile Updated</h2>}
+        {loading && <h2>loading</h2>}
+
+        <Formik
+          initialValues={formValues || initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+          enableReinitialize
+        >
+          {formik => {
+            return (
+              <Form className="flex flex-col items-center gap-1">
+                <ProfileFormControl />
+                <button
+                  className="btn"
+                  type="submit"
+                  disabled={!formik.isValid || !formik.dirty}
+                >
+                  update
+                </button>
+              </Form>
+            )
+          }}
+        </Formik>
       </div>
     </div>
   )
 }
 
-function RegisterField({ type, placeholder, setFunction, value }) {
+function ProfileFormControl() {
   return (
-    <input
-      className="text-center"
-      type={type}
-      placeholder={placeholder}
-      onChange={e => setFunction(e.target.value)}
-      value={value}
-    />
+    <>
+      <FormikControl
+        control="input"
+        type="text"
+        label="first name"
+        name="firstName"
+      />
+      <FormikControl
+        control="input"
+        type="text"
+        label="last name"
+        name="lastName"
+      />
+      <FormikControl control="input" type="email" label="email" name="email" />
+      <FormikControl control="input" type="text" label="phone" name="phone" />
+      <FormikControl
+        control="input"
+        type="text"
+        label="street name"
+        name="streetName"
+      />
+      <FormikControl
+        control="input"
+        type="text"
+        label="street number"
+        name="streetNumber"
+      />
+      <FormikControl
+        control="input"
+        type="text"
+        label="apartment number"
+        name="apartmentNumber"
+      />
+      <FormikControl
+        control="input"
+        type="text"
+        label="postal code"
+        name="postalCode"
+      />
+      {/* <FormikControl control="input" type="text" label="city" name="city" /> */}
+    </>
   )
 }
 

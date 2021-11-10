@@ -43,6 +43,11 @@ const routes = [
     isProtected: true,
   },
   {
+    path: '/shipping',
+    component: Pages.ShippingScreen,
+    isProtected: true,
+  },
+  {
     path: '/admin',
     component: Pages.AdminPage,
     isProtected: true,

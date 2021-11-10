@@ -12,6 +12,7 @@ import AdminPage from './NonTradePages/Admin/AdminPage'
 import ProfileScreen from './NonTradePages/Profile/ProfileScreen'
 import NotFoundPage from './Basic/NotFoundPage'
 import HomePage from './Basic/Home/HomePage'
+import ShippingScreen from './TradePages/Shipping/ShippingScreen'
 
 export {
   AboutPage,
@@ -28,4 +29,5 @@ export {
   ProfileScreen,
   LoginScreen,
   RegisterScreen,
+  ShippingScreen,
 }

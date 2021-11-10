@@ -1,49 +1,36 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik'
-import * as yup from 'yup'
 import ShaharTextField from '../../Utils/ShaharTextField'
 import ShaharCheckboxField from './ShaharCheckboxField'
 import PayFormButtons from './PayFormButtons'
 import PayErrorsSummary from './PayErrorsSummary'
-import { useSelector } from 'react-redux'
+import validationSchema from './validationSchema'
 
-const validationSchema = yup.object({
-  firstName: yup.string().required('first name is required'),
-  lastName: yup.string().required('last name is required'),
-  streetName: yup.string().required('street name is required'),
-  streetNum: yup
-    .number()
-    .integer('only integer')
-    .required('street number is required'),
-  apartmentNum: yup.number().integer('only integer'),
-  city: yup.string().required('city is required'),
-  comment: yup.string(),
-  phone: yup
-    .string()
-    .matches(/^[0-9]{9}$/, { message: 'only format 000-0000' })
-    .required('phone number is required'),
-  email: yup.string().email('not valid email').required('email is required'),
-  agree: yup.bool().oneOf([true], 'Field must be checked'),
-})
+const initialValues = {
+  firstName: '',
+  lastName: '',
+  phone: '',
+  email: '',
+  streetName: '',
+  streetNum: '',
+  apartmentNum: '',
+  city: '',
+  comment: '',
+  agree: false,
+
+  // firstName: 'userInfo.firstName',
+  // lastName: userInfo.lastName,
+  // phone: userInfo.phone,
+  // email: userInfo.email,
+  // streetName: userInfo.streetName,
+  // streetNum: userInfo.streetNum,
+  // apartmentNum: '',
+  // city: userInfo.city,
+}
 
 function PayFormContent() {
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
-
-  console.log(userInfo)
-
-  const initialValues = {
-    firstName: userInfo.firstName,
-    lastName: userInfo.lastName,
-    phone: userInfo.phone,
-    email: userInfo.email,
-    streetName: userInfo.streetName,
-    streetNum: userInfo.streetNum,
-    apartmentNum: '',
-    city: userInfo.city,
-    comment: '',
-    agree: false,
-  }
+  // const userLogin = useSelector(state => state.userLogin)
+  // const { userInfo } = userLogin
 
   return (
     <Formik
@@ -86,6 +73,44 @@ function PayFormContent() {
   )
 }
 
+function NameInputs() {
+  return (
+    <>
+      <ShaharTextField
+        name="firstName"
+        placeholder="first name"
+        type="text"
+        fieldAdditionaClass="text-center"
+      />
+      <ShaharTextField
+        name="lastName"
+        placeholder="last name"
+        type="text"
+        fieldAdditionaClass="text-center"
+      />
+    </>
+  )
+}
+
+function ContactInput() {
+  return (
+    <>
+      <ShaharTextField
+        name="email"
+        placeholder="youremail@domain.com"
+        type="text"
+        fieldAdditionaClass="text-center"
+      />
+      <ShaharTextField
+        name="phone"
+        placeholder="123-1234"
+        type="text"
+        fieldAdditionaClass="text-center"
+      />
+    </>
+  )
+}
+
 function AddressInput() {
   return (
     <>
@@ -112,44 +137,6 @@ function AddressInput() {
         name="city"
         placeholder="city"
         type="text"
-      />
-    </>
-  )
-}
-
-function ContactInput() {
-  return (
-    <>
-      <ShaharTextField
-        name="email"
-        placeholder="youremail@domain.com"
-        type="text"
-        fieldAdditionaClass="text-center"
-      />
-      <ShaharTextField
-        name="phone"
-        placeholder="123-1234"
-        type="text"
-        fieldAdditionaClass="text-center"
-      />
-    </>
-  )
-}
-
-function NameInputs() {
-  return (
-    <>
-      <ShaharTextField
-        name="firstName"
-        placeholder="first name"
-        type="text"
-        fieldAdditionaClass="text-center"
-      />
-      <ShaharTextField
-        name="lastName"
-        placeholder="last name"
-        type="text"
-        fieldAdditionaClass="text-center"
       />
     </>
   )

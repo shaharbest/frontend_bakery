@@ -7,6 +7,10 @@
   font-family: Garamond, serif;
 }
 
+button.btn[disabled] {
+  opacity: 0.7;
+}
+
 @media print {
   header {
     display: none;

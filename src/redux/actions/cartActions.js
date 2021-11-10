@@ -20,9 +20,16 @@ export const addProductsUnitsToCart = (productId, unitsCount) => ({
   },
 })
 
-export const removeProductFromCart = (productId) => ({
+export const removeProductFromCart = productId => ({
   type: actions.REMOVE_PRODUCT_FROM_CART,
   payload: {
     productId,
   },
 })
+
+// export const saveShippingAddress = data => dispatch => ({
+//   type: actions.CART_SAVE_SHIPPING_ADDRESS,
+//   payload: {
+//     data,
+//   },
+// })
