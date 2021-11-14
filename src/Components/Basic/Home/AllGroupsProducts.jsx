@@ -7,7 +7,7 @@ import GroupCarousel from './GroupCarousel'
 function AllGroupsProducts() {
   const dispatch = useDispatch()
   const { loading, error, productGroups } = useSelector(
-    (state) => state.productGroupList
+    state => state.productGroupList
   )
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function AllGroupsProducts() {
       ) : error ? (
         <h3>{error}</h3>
       ) : (
-        productGroups.map((curGroup) => (
+        productGroups.map(curGroup => (
           <GroupCarousel key={curGroup.id} group={curGroup} />
         ))
       )}

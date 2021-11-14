@@ -1,0 +1,22 @@
+/* div.swiper-button-prev,
+div.swiper-button-next {
+  @apply text-d2 font-bold;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-d2;
+} */
+
+.swiper-wrapper {
+  padding-bottom: 30px;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 0px !important;
+}
+
+.swiper-container {
+  --swiper-theme-color: brown;
+}

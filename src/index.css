@@ -6,37 +6,20 @@
   display: block;
 }
 
-nav,
-header,
-footer,
-main {
-  @apply bg-l4 text-d1;
-  @apply dark:bg-d1 dark:text-l1;
-}
+@layer components {
+  .btn {
+    @apply font-bold py-2 px-4 rounded border;
+    @apply bg-l5 dark:bg-d5;
+  }
 
-section {
-  @apply bg-l3 text-d2;
-  @apply dark:bg-d2 dark:text-l4;
-}
+  /* @apply div.swiper-button-prev,
+  div.swiper-button-next {
+    color: cyan;
+  }
 
-aside {
-  @apply bg-l2 text-d3;
-  @apply dark:bg-d3 dark:text-l3;
-}
-
-.btn {
-  @apply font-bold py-2 px-4 rounded border;
-  @apply bg-l5 dark:bg-d5;
-}
-
-.border {
-  @apply border-d2;
-  @apply dark:border-l3;
-}
-
-.chosen {
-  @apply bg-l3 text-d2;
-  @apply dark:bg-d3 dark:text-l2;
+  span.swiper-pagination-bullet {
+    background-color: black;
+  } */
 }
 
 /* textarea,
@@ -67,5 +50,33 @@ select {
   }
   h4 {
     @apply text-2xl;
+  }
+
+  .border {
+    @apply border-d2;
+    @apply dark:border-l3;
+  }
+
+  .chosen {
+    @apply bg-l3 text-d2;
+    @apply dark:bg-d3 dark:text-l2;
+  }
+
+  nav,
+  header,
+  footer,
+  main {
+    @apply bg-l4 text-d1;
+    @apply dark:bg-d1 dark:text-l1;
+  }
+
+  section {
+    @apply bg-l3 text-d2;
+    @apply dark:bg-d2 dark:text-l4;
+  }
+
+  aside {
+    @apply bg-l2 text-d3;
+    @apply dark:bg-d3 dark:text-l3;
   }
 }

@@ -6,7 +6,7 @@ function SingleStory({ story }) {
   const { datePosted, imagePath, comments } = story
 
   return (
-    <section className="p-2 border max-w-xl mx-auto">
+    <section className="p-2 max-w-xl mx-auto rounded-lg shadow-2xl overflow-hidden border">
       <h4 className="text-right">
         {new Date(datePosted).toLocaleDateString('en-GB')}
       </h4>

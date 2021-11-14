@@ -13,7 +13,7 @@ function AboutPage() {
         <article className="text-justify">
           <img
             alt="baker"
-            className="md:max-w-xl w-96 md:w-max mx-auto md:float-right p-3"
+            className="md:max-w-xl w-96 md:w-max md:float-right mx-auto md:m-10 shadow-2xl"
             src="images/baker.jpg"
           />
           <p>{lorem.p1}</p>

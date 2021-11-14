@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 
 function Catalog({ productsList }) {
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-wrap justify-center gap-12">
       {productsList.map((curProduct, index) => (
-        <div key={index} className="m-1 border">
+        <div key={index}>
           <ProductCard product={curProduct} isCol={true} />
         </div>
       ))}

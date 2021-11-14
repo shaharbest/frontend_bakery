@@ -10,7 +10,7 @@ function Store2() {
   const [currentPage, setCurrentPage] = useState(1)
   const [productsPerPage] = useState(10)
 
-  const { loading, error, products } = useSelector((state) => state.productList)
+  const { loading, error, products } = useSelector(state => state.productList)
 
   useEffect(() => {
     dispatch(listProducts())
@@ -25,32 +25,35 @@ function Store2() {
   )
 
   // Change page
-  const paginate = (pageNumber) => {
+  const paginate = pageNumber => {
     catalogDivRef.current.scrollTo(1, 1)
     setCurrentPage(pageNumber)
   }
 
   return (
     <div className="h-full">
-      {loading ? (
-        <h2>loading...</h2>
-      ) : error ? (
-        <h3>{error}</h3>
-      ) : (
-        <div className="flex flex-col gap-2 items-center overflow-y-hidden h-full justify-between">
-          <div
-            ref={catalogDivRef}
-            className="w-full flex justify-center overflow-y-auto"
-          >
-            <Products products={currentProducts} />
+      {
+        // loading ? (
+        //   <h2>loading...</h2>
+        // ) :
+        error ? (
+          <h3>{error}</h3>
+        ) : (
+          <div className="flex flex-col gap-2 items-center h-full justify-between">
+            <div
+              ref={catalogDivRef}
+              className="w-full flex justify-center overflow-y-auto"
+            >
+              <Products products={currentProducts} loading={loading} />
+            </div>
+            <Pagination
+              productsPerPage={productsPerPage}
+              totalProducts={products.length}
+              paginate={paginate}
+            />
           </div>
-          <Pagination
-            productsPerPage={productsPerPage}
-            totalProducts={products.length}
-            paginate={paginate}
-          />
-        </div>
-      )}
+        )
+      }
     </div>
   )
 }

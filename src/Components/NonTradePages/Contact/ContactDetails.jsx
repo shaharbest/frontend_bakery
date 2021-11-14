@@ -13,7 +13,7 @@ function ContactDetails() {
   }
 
   return (
-    <section>
+    <section className="rounded-lg shadow-2xl overflow-hidden border m-6">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

@@ -6,9 +6,7 @@ import SingleStory from './SingleStory'
 function BlogPage() {
   const dispatch = useDispatch()
 
-  const { loading, error, blogPosts } = useSelector(
-    (state) => state.blogPostList
-  )
+  const { loading, error, blogPosts } = useSelector(state => state.blogPostList)
 
   useEffect(() => {
     dispatch(listBlogPosts())
@@ -21,8 +19,8 @@ function BlogPage() {
       ) : error ? (
         <h3>{error}</h3>
       ) : (
-        <div className="flex flex-col gap-3">
-          {blogPosts.map((curStory) => (
+        <div className="flex flex-col gap-12">
+          {blogPosts.map(curStory => (
             <SingleStory key={curStory.id} story={curStory} />
           ))}
         </div>
